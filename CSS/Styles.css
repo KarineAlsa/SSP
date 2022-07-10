@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Quicksand&family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&family=Open+Sans:wght@300&family=Source+Code+Pro:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Open+Sans:wght@300&family=Source+Code+Pro:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Lora:ital@1&family=Open+Sans:wght@300&family=Source+Code+Pro:ital,wght@1,500&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.form-login {
+
+    width: 450px; /*ancho*/
+    height: 375px; /*largo*/
+    background-color: white;
+    /*background: #43cea2;  */
+background: -webkit-linear-gradient(to right, #689ccf, #43cea2); 
+background: linear-gradient(to right, #689ccf, #43cea2);
+    
+    box-shadow: 7px 13px 40px black;
+    padding: 10px 10px;
+    /*border: 3px solid #b7e2d5;*/
+    border-radius: 12px;
+    padding: 5px;
+    transform: translate(-50%,-50%); /*ancho,alto*/
+    top: 50%;
+    left: 50%;
+    position: absolute;
+
+}
+
+.title {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    margin-top: 6px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 40px;
+}
+
+.vistapaciente {
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+}
+.inicio{
+    
+background-image: url(../IMG/edificio.jpeg);
+background-size: cover;
+backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+    /*image-resolution: 20;*/
+  
+}
+
+input {
+    display: block;
+    width: 60%;
+    height: 28px;
+    border: bottom 1px solid #f64f59;
+    margin: auto;
+    padding: 10px 10px 10px;
+    border-color: violet;
+}
+
+label {
+  font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    border-top: 2px;
+
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+/*paciente*/
+.login{
+  height: auto;
+  width: 1410px;
+  margin-left: 14px;
+  margin-right: 8px;
+  
+}
+p{
+  text-align: center;
+}
+.datos {
+    width: 1109px;
+    height: 700px;
+    float: right;
+    background-color: #fff;
+    margin-top: 15px;
+   /* margin-right: 8px;*/
+    border: 1px solid black;
+    border-radius: 9px;
+}
+
+aside {
+    width: 301px;
+    height: 700px;
+    float: left;
+    background-color: rgb(248, 245, 226);
+    /*margin-left: 5px;*/
+    margin-top: 15px;
+    border: 1px solid black;
+    border-radius: 9px;
+}
+
+.info{
+    margin-top: 5px;
+    font-family: 'Quicksand', sans-serif;
+}
+.fieldset{
+  border: rgb(255, 255, 255);
+}
+.lista{
+    margin-top: 80px;
+    margin-left: 30px;
+    
+}
+.boton1{
+    margin-top: 20px;
+    border-radius: 4px;
+    font-size: 20px;
+    height: 35px;
+    width: 80px;
+    
+}
+button:hover{
+    background-color: #fdcdd0;
+}
+li{
+  font-family: 'Goudy Bookletter 1911', serif;
+  font-size: 22px;
+}
+
+/*laboratorios*/
+header{
+    background-color: #fff;
+}
+.info{
+    font-size: 25px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.hamburger-menu {
+    position: relative;
+    z-index: 99;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .hamburger-menu .bar {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background-color: #eae5a4;
+    border-radius: 3px;
+    transition: 0.5s;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .logo img {
+    width: 120px;
+    margin-right: 0.6rem;
+    margin-top: -0.6rem;
+  }
+  .titulo{
+    position: center;
+  }  
+  table{
+    background-color:antiquewhite;
+  }
+  
+  table,.tr1,.th1,.td1{
+    border: 2px solid #000;
+    width: 600px;
+    height: 50px;
+    text-align: center;
+  }
+  .tdb{
+    width: 200px;
+  }
+  section.tabla{
+    height: 1000px;
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+  }
+  .boton{
+    border-radius: 2px solid black;
+    width: 50px;
+    height: 30px;
+    margin-top: 100px;
+    align-items: center;
+    
+  }
+  /*Vista medico*/
+.vistamedico{
+  background-color: #dfdfdf;
+  margin: 0px;
+  
+}
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+}
+a{
+  font-family: 'Goudy Bookletter 1911', serif;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.DatosMedico{
+  width: 800px;
+  background-color: #cdcdcd;
+ /* margin-right: 50px;*/
+  margin-left: 300px;
+  margin-top: 30px;
+  border-radius: 9px;
+}
+
+.ExpedientePaciente{
+  background-color: #f5f5f5;
+  height: 400px;
+  width: 500px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 450px;
+  border-radius: 9px;
+}
+
+.lista2 {
+  margin-left: 30px;
+  font-family: 'Comfortaa', cursive;
+  
+}
+.DiagnosticoTratamiento{
+  background-color: #cdcdcd;
+  height: 31vh;
+  width: 800px;
+  margin-right: 6%;
+  margin-left: 300PX;
+  margin-top: 30px;
+  border-radius: 9px;
+}
+
+.DiagnosticoTratamiento h1{
+text-align: center;
+margin-bottom: 5px;
+}
+
+.diagnostico{
+  margin-bottom: 20px;
+}
