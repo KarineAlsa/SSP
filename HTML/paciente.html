@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    
+</head>
+
+<body class="vistapaciente">
+        <section class="login">
+        <aside>
+            <br>
+            <div>
+                <center>
+                   <img src="../IMG/usuario.png" class="perfil">
+                </center>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <br>
+                <button class="info" onclick="personales()">Datos personales</button>
+                <br>
+                <hr>
+                <br>
+                <button class="info" onclick="laboratorios()">Laboratorios</button>
+                <br>
+                <hr>
+                <br>
+                <button class="info" onclick="expediente()">Expediente médico</button>
+                <br>
+                <hr>
+            </div>
+        </aside>
+        <section class="datos">
+            <div id="personales">
+                <div>
+                    <center>
+                        <br>
+                    <h1 class="info" style="font-size:300%">Datos Personales</h1>
+                </center>
+                </div>
+                <div class="lista" >
+                    
+                        <ul id=informacion >
+
+                            <li> Nombre: <label id="Nombre"></label></li> 
+                            <br>
+                            <li> Edad: <label id="edad"></label></li>
+                            <br>
+                            <li> Peso: <label id="peso"></label> kg</li>
+                            <br>
+                            <li> Sexo: <label id="sexo"></label></li>
+                            <br>
+                            <li> Estatura: <label id="estatura"></label> cm</li>
+                            <br>
+                            <li> Grupo Sanguineo: <label id="sangre"></label></li>
+                        </ul>
+                    
+                </div>
+            </div>
+
+            <div id="laboratorios" style="display:none">
+                <div>
+                    <center>
+                        <br>
+                    <h1 class="info" style="font-size:300%">Laboratorios</h1>
+                </center>
+                </div>
+                <div class="lista" >
+                    
+                    <table id="laboraa">
+
+                        <tr>       
+                             
+                          <td>ESTUDIOS DE LABORATORIO</td>    
+                        </tr>
+            
+                      </table>
+                    
+                </div>
+            </div>
+
+            <div id="expediente" style="display:none">
+                <div>
+                    <center>
+                        <br>
+                    <h1 class="info" style="font-size:300%">Expedientes Medicos</h1>
+                </center>
+                </div>
+                <div class="lista" >
+                    <table id="expmed">
+
+                        <tr>       
+                             
+                          <td>DIAGNOSTICO</td>  
+                          <td>TRATAMIENTO</td>  
+                        </tr>
+            
+                      </table>
+                        
+                    
+                </div>
+            </div>
+        </section>
+        <div>
+            <center><button class="boton1" onclick="salir()">Salir</button></center>
+        </div>
+    </section>
+</body>
+    <script src="../JS/validar.js"></script>
+    <script src="../JS/paciente.js"></script>
+    
+</html>
