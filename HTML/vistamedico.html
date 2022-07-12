@@ -30,38 +30,51 @@
         <a>Cedula profesional: <label id="cedulap"></label></a><br><br>    
     </div>
 
+    <div class="busqueda">
+        <section class="buscar1">
+            <input id="buscarP" class="buscarP">
+        </section>
+        <div class="buscar2">
+            <button type="button" class="btnB" onclick="buscar()">BUSCAR</button>
+        </div>
+            
+            
+        
+    </div>
     <div class="ExpedientePaciente">
         <br><center><h1>Expediente del paciente</h1></center><br>
         <div class="lista2">
             <ul>
-                <li> Nombre: <label id="Nombre"></label></li>
+                <li> Nombre: <label id="nombrepaciente"></label></li>
                 <br>
-                <li> Edad: </li>
+                <li> Edad: <label id="edadpaciente"></label> </li>
                 <br>
-                <li> Peso: 86 kg</li>
+                <li> Peso: <label id="pesopaciente"></label></li>
                 <br>
-                <li> Sexo: F</li>
+                <li> Sexo: <label id="sexopaciente"></label></li>
                 <br>
-                <li> Estatura: 168 cm</li>
+                <li> Estatura: <label id="estaturapaciente"></label></li>
                 <br>
-                <li> Grupo Sanguineo: A+</li>
+                <li> Grupo Sanguineo: <label id="sangrepaciente"></label></li>
             </ul>
         </div>
         
     </div>
-
+    <br>
     <div class="DiagnosticoTratamiento">
         <br>
-        <h1>Diagnostico </h1> <input class="diagnostico">
+        <h1>Diagnostico </h1> <input class="diagnostico" id="diagnostico">
         <hr>
         <br>
-        <h1>Tratamiento </h1> <input class="diagnostico">
-        <center><button type="button">Agregar</button></center>
+        <h1>Tratamiento </h1> <input class="diagnostico" id="tratamiento">
+        <center><button class="btnB">Agregar</button></center>
     </div>
-    <div>
-        <center><button class="boton" onclick="salir()">Salir</button></center>
-    </div>
+    <br>
+    <br>
+        <center><button class="boton2" onclick="salir()">Salir</button></center>
+    
 </body>
 <script src="../JS/validar.js"></script>
 <script src="../JS/medico.js"></script>
 </html>
+

@@ -22,7 +22,7 @@ background: linear-gradient(to right, #689ccf, #43cea2);
     
     box-shadow: 7px 13px 40px black;
     padding: 10px 10px;
-    /*border: 3px solid #b7e2d5;*/
+    
     border-radius: 12px;
     padding: 5px;
     transform: translate(-50%,-50%); /*ancho,alto*/
@@ -127,16 +127,62 @@ aside {
     font-size: 20px;
     height: 35px;
     width: 80px;
+    background-color: #ffff;
+    color: #000;
+   border: 0px;
+   /*transform: translate(-30%,0%);*/
     
 }
-button:hover{
-    background-color: #fdcdd0;
+.boton1:hover{
+    background-color: #000;
+    color: #ffff ;
 }
 li{
-  font-family: 'Goudy Bookletter 1911', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 22px;
 }
+.btninfo{
+  width: 250px;
+  height: 40px;
+  transform: translate(7%,-20% );
+  border-radius:  5px ;
+  border-color: #36dc9c; 
+  color: #000;
+  transition: 0.3s;
+  cursor: pointer;
+}
 
+.btninfo:hover {
+  opacity: 1;
+  box-shadow: 0 10px 12px 0 rgba(0,0,0,0.24),0 15px 30px 0 rgba(0,0,0,0.19);
+  background-color: #36dc9c;
+}
+
+#laboraa{
+  transform: translate(35%,50%);
+  border:0px solid black;
+}
+
+#expmed{
+  transform: translate(35%,50%);
+  background-color: #ffff;
+  border: 0px solid black;
+}
+#titulotabla{
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+}
+th, td {
+  border-bottom: 3px solid #ddd;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr{
+  font-size: 20px;
+  margin-bottom: 3px;
+  font-family: 'Quicksand', sans-serif;
+}
 /*laboratorios*/
 header{
     background-color: #fff;
@@ -180,7 +226,7 @@ header{
   .titulo{
     position: center;
   }  
-  table{
+  .table{
     background-color:antiquewhite;
   }
   
@@ -198,14 +244,6 @@ header{
     background: #36D1DC;
     background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
     background: linear-gradient(to right, #5B86E5, #36D1DC);
-  }
-  .boton{
-    border-radius: 2px solid black;
-    width: 50px;
-    height: 30px;
-    margin-top: 100px;
-    align-items: center;
-    
   }
   /*Vista medico*/
 .vistamedico{
@@ -264,3 +302,58 @@ margin-bottom: 5px;
 .diagnostico{
   margin-bottom: 20px;
 }
+
+.busqueda{
+  margin-top: 20px;
+  transform: translate(260%,0%);
+  width: 220px;
+  height: 80px;
+  border-radius: 19px solid black;
+}
+
+.buscar1{
+  margin-top: 20px;
+  float:left;
+  
+}
+.buscar2{
+  margin-top: 20px;
+  float:right;
+  transform: translate(90%,-174%);
+
+}
+.btnB{
+  background-color: #ffff;
+  color: #000;
+  border: 0px;
+  height:28px;
+  width: 70px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px black;
+}
+.btnB:hover{
+  background-color: #000;
+  color: #ffff ;
+  
+}
+.buscarP{
+  width: 200px;
+}
+.boton2{
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 20px;
+  height: 35px;
+  width: 80px;
+  background-color: #ffff;
+  color: #000;
+ border: 0px;
+ transform: translate(-30%,0%);
+  
+}
+.boton2:hover{
+  background-color: #000;
+  color: #ffff ;
+}
+
+
