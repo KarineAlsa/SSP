@@ -21,48 +21,71 @@
             </div>
         </div>
     </header>
+    
     <section class="tabla">
+        <br>
         
     <div >
         <center>
             <br>
+            <br><center><label id="haypacientes"></label></center>
             <br>
-            <br>
-        <table class="table">
+        <table id= "tablalab1" class="table">
             <tr class="tr2">
-                <th class="th1">#</th>
-                <th class="th1">Nombre</th>
-                <th class="th1">Apellido</th>
-                <th class="th1">Identificador</th>
-                <th></th>
-              </tr>
-              <tr class="tr1">
-                <td class="td1"> 1</td>
-                <td class="td1"> Aylin Venturina</td>
-                <td class="td1"> Mapica Muñiz</td>
-                <td class="td1"> 213365</td>
-                <td class="tdB"> <button> Enviar</button></td>
-              </tr>
-              <tr class="tr1">
-                <td class="td1"> 2</td>
-                <td class="td1"> Carmen Anel</td>
-                <td class="td1"> Vilca Mamamni</td>
-                <td class="td1"> 213378</td>
-                <td class="tdB"> <button> Enviar</button></td>
-              </tr>
-              <tr class="tr1">
-                <td class="td1"> 3</td>
-                <td class="td1"> Karine</td>
-                <td class="td1"> Alcazar Sarmiento</td>
-                <td class="td1"> 213340</td>
-                <td class="tdB"> <button> Enviar</button></td>
-              </tr>
+                
+                
+                <th style="width:50px"class="th1">Codigos</th>
+                
+            </tr>
+             
+        </table>
+        <table id= "tablalab" class="table1">
+            
+             
         </table>
     </center>
+    <br>
+    <center><button class="btnB" onclick="orden2()">Refrescar</button></center>
     </div>
-    <button class="boton" onclick="salir()">Salir</button>    
+    <div class="busqueda">
+        <section class="buscar1">
+            <input id="buscarP" class="buscarP">
+        </section>
+        <div class="buscar2">
+            <button type="button" class="btnB" onclick="busqueda()"><img src="../IMG/lupa.png" class="lupa"></button>
+        </div>    
+    </div>
+        
+    </div>
+  
+      <div class="ExpedientePaciente2">
+        <br><center><h1>Expediente del paciente</h1></center><br>
+        <div class="lista2">
+            <ul>
+                <li class="infoPaciente"> Nombre: <label id="nombrepaciente"></label></li>
+                <br>
+                <li class="infoPaciente"> Codigo: <label id="codigopaciente"></label> </li>
+                <br>
+                <li class="infoPaciente"> Estado: <label id="estado"></label></li>
+                <br>
+            </ul>
+        </div> 
+    </div>
+    <div class="laboratorios">
+        <select name="laboratorios">
+            <option>Prueba COVID</option>
+            <option>Prueba de embarazo</option>
+            <option>Analisis de sangre</option>
+            <option>Biometria hematica</option>
+            <option>Examen de orina</option>
+            
+            </select>
+      <center><button class="btnB" style="display:none"id="agregar"onclick="agregar()">Agregar</button></center>
+    </div>
+    
+      <center><button class="boton2" onclick="salir()">Salir</button> </center>  
 </section>
-
+<script src="../JS/laboratorio.js"></script>
 </body>
 
 </html>

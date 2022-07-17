@@ -3,18 +3,15 @@
 <head>
     <link rel="stylesheet" href="../CSS/Styles.css"/>
     <script src="../JS/validar.js"></script>
-    
 </head>
 
 <body class="vistapaciente">
+
     <header>
+        <br><br>
         <div class="container-case">
-            <div class="logo">
-            <img src="../IMG/laboratorio.png" alt="Logo"/>
-            <h1 class="titulo"> LABORATORIOS SSP</h1>
-            </div>
-            <center><a class="info">Centro de analisis clinicos SSP</a></center>
-            <center><br><a class="info">Dirección: Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
+            <center><h1 class="tituloProyecto">Centro de analisis clinicos SSP</h1></center>
+            <center><br><a class="infoUbi">Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
             <br><hr>
             <div class="overlay"></div>
             <div class="hamburger-menu">
@@ -22,12 +19,13 @@
             </div>
         </div>
     </header>
+
     <div class="DatosMedico">
-        <center><h1 class="medico">Datos del medico</h1></center>
+        <center><h1 class="medico">Datos del médico</h1></center>
         <hr><br>
-        <a >Nombre: <label id="Nombre"></label></a><br><br>
-        <a>Especialidad: <label id="especialidad"></label></a><br><br>
-        <a>Cedula profesional: <label id="cedulap"></label></a><br><br>    
+        <a>Nombre: <label id="Nombre" class="etiquetas2"></label></a><br><br>
+        <a>Especialidad: <label id="especialidad" class="etiquetas2"></label></a><br><br>
+        <a>Cedula profesional: <label id="cedulap" class="etiquetas2"></label></a><br><br>    
     </div>
 
     <div class="busqueda">
@@ -35,39 +33,37 @@
             <input id="buscarP" class="buscarP">
         </section>
         <div class="buscar2">
-            <button type="button" class="btnB" onclick="buscar()">BUSCAR</button>
-        </div>
-            
-            
-        
+            <button type="button" class="btnB" onclick="buscar()"><img src="../IMG/lupa.png" class="lupa"></button>
+        </div>    
     </div>
+    
     <div class="ExpedientePaciente">
         <br><center><h1>Expediente del paciente</h1></center><br>
         <div class="lista2">
             <ul>
-                <li> Nombre: <label id="nombrepaciente"></label></li>
+                <li class="infoPaciente"> Nombre: <label id="nombrepaciente"></label></li>
                 <br>
-                <li> Edad: <label id="edadpaciente"></label> </li>
+                <li class="infoPaciente"> Edad: <label id="edadpaciente"></label> </li>
                 <br>
-                <li> Peso: <label id="pesopaciente"></label></li>
+                <li class="infoPaciente"> Peso: <label id="pesopaciente"></label></li>
                 <br>
-                <li> Sexo: <label id="sexopaciente"></label></li>
+                <li class="infoPaciente"> Sexo: <label id="sexopaciente"></label></li>
                 <br>
-                <li> Estatura: <label id="estaturapaciente"></label></li>
+                <li class="infoPaciente"> Estatura: <label id="estaturapaciente"></label></li>
                 <br>
-                <li> Grupo Sanguineo: <label id="sangrepaciente"></label></li>
+                <li class="infoPaciente"> Grupo Sanguineo: <label id="sangrepaciente"></label></li>
+                <li hidden> Id <label id="idpaciente" hidden></label></li>
             </ul>
         </div>
-        
     </div>
-    <br>
+    <br><br>
     <div class="DiagnosticoTratamiento">
         <br>
-        <h1>Diagnostico </h1> <input class="diagnostico" id="diagnostico">
+        <h1>Diagnóstico </h1> <input class="diagnostico" id="diagnostico">
         <hr>
         <br>
         <h1>Tratamiento </h1> <input class="diagnostico" id="tratamiento">
-        <center><button class="btnB">Agregar</button></center>
+        <center><button class="btnB2" onclick="cargarDatos()">Agregar</button></center>
     </div>
     <br>
     <br>
