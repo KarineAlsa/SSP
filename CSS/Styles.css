@@ -1,345 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Sofia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Quicksand&family=Sofia&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&family=Open+Sans:wght@300&family=Source+Code+Pro:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&family=Open+Sans:wght@200&family=Source+Code+Pro:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Open+Sans:wght@300&family=Source+Code+Pro:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Lora:ital@1&family=Open+Sans:wght@300&family=Source+Code+Pro:ital,wght@1,500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Lora:ital@1&family=Open+Sans:wght@300&family=Roboto+Flex:opsz@8..144&family=Source+Code+Pro:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Lora:ital@1&family=Open+Sans:wght@300&family=Roboto+Flex:opsz@8..144&family=Roboto+Slab:wght@100&family=Source+Code+Pro:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Goudy+Bookletter+1911&family=Lobster+Two:ital@1&family=Lora:ital@1&family=Open+Sans:wght@300&family=Roboto+Flex:opsz@8..144&family=Roboto+Slab:wght@200;400&family=Source+Code+Pro:ital,wght@1,500&display=swap');
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .form-login {
-
-    width: 450px; /*ancho*/
-    height: 375px; /*largo*/
-    background-color: white;
-    /*background: #43cea2;  */
-background: -webkit-linear-gradient(to right, #689ccf, #43cea2); 
-background: linear-gradient(to right, #689ccf, #43cea2);
-    
-    box-shadow: 7px 13px 40px black;
-    padding: 10px 10px;
-    
-    border-radius: 12px;
-    padding: 5px;
-    transform: translate(-50%,-50%); /*ancho,alto*/
-    top: 50%;
-    left: 50%;
-    position: absolute;
-
+  width: 450px;
+  height: 375px;
+  background-color: white;
+  background: -webkit-linear-gradient(to right, #689ccf, #43cea2);
+  background: linear-gradient(to right, #689ccf, #43cea2);
+  box-shadow: 7px 13px 40px black;
+  padding: 10px 10px;
+  border-radius: 12px;
+  padding: 5px;
+  transform: translate(-50%, -50%);/*ancho,alto*/
+  top: 50%;
+  left: 50%;
+  position: absolute;
 }
 
 .title {
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    margin-top: 6px;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 40px;
+  margin-top: 6px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 40px;
 }
 
 .vistapaciente {
-    background: #36D1DC;
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-    background: linear-gradient(to right, #5B86E5, #36D1DC);
+  background: #36D1DC;
+  background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+  background: linear-gradient(to right, #5B86E5, #36D1DC);
 }
-.inicio{
-    
-background-image: url(../IMG/edificio.jpeg);
-background-size: cover;
-backdrop-filter: blur(10px);
+
+.inicio {
+  background-image: url(../IMG/edificio.jpeg);
+  background-size: cover;
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-    /*image-resolution: 20;*/
-  
 }
 
 input {
-    display: block;
-    width: 60%;
-    height: 28px;
-    border: bottom 1px solid #f64f59;
-    margin: auto;
-    padding: 10px 10px 10px;
-    border-color: violet;
+  display: block;
+  width: 60%;
+  height: 28px;
+  border: bottom 1px solid #f64f59;
+  margin: auto;
+  padding: 10px 10px 10px;
+  border-color: violet;
 }
 
 label {
   font-family: 'Comfortaa', cursive;
-    font-size: 16px;
-    border-top: 2px;
-
+  font-size: 16px;
+  border-top: 2px;
+  color: #000;
 }
 
 img {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 /*paciente*/
-.login{
+.infoP{
   height: auto;
   width: 1410px;
   margin-left: 14px;
   margin-right: 8px;
-  
+
 }
-p{
-  text-align: center;
-}
+
 .datos {
-    width: 1109px;
-    height: 700px;
-    float: right;
-    background-color: #fff;
-    margin-top: 15px;
-   /* margin-right: 8px;*/
-    border: 1px solid black;
-    border-radius: 9px;
+  width: 1109px;
+  height: 700px;
+  float: right;
+  background-color: #fff;
+  margin-top: 15px;
+  border: 1px solid black;
+  border-radius: 9px;
 }
 
 aside {
-    width: 301px;
-    height: 700px;
-    float: left;
-    background-color: rgb(248, 245, 226);
-    /*margin-left: 5px;*/
-    margin-top: 15px;
-    border: 1px solid black;
-    border-radius: 9px;
+  width: 301px;
+  height: 700px;
+  float: left;
+  background-color: #d9d9d9;
+  margin-top: 15px;
+  border: 1px solid black;
+  border-radius: 9px;
 }
 
-.info{
-    margin-top: 5px;
-    font-family: 'Quicksand', sans-serif;
+.tituloInfo {
+  margin-top: 5px;
+
+  font-family: 'Roboto Flex', sans-serif;
 }
-.fieldset{
+
+.fieldset {
   border: rgb(255, 255, 255);
 }
-.lista{
-    margin-top: 80px;
-    margin-left: 30px;
-    
-}
-.boton1{
-    margin-top: 20px;
-    border-radius: 4px;
-    font-size: 20px;
-    height: 35px;
-    width: 80px;
-    background-color: #ffff;
-    color: #000;
-   border: 0px;
-   /*transform: translate(-30%,0%);*/
-    
-}
-.boton1:hover{
-    background-color: #000;
-    color: #ffff ;
-}
-li{
-  font-family: 'Quicksand', sans-serif;
-  font-size: 22px;
-}
-.btninfo{
-  width: 250px;
-  height: 40px;
-  transform: translate(7%,-20% );
-  border-radius:  5px ;
-  border-color: #36dc9c; 
-  color: #000;
-  transition: 0.3s;
-  cursor: pointer;
-}
 
-.btninfo:hover {
-  opacity: 1;
-  box-shadow: 0 10px 12px 0 rgba(0,0,0,0.24),0 15px 30px 0 rgba(0,0,0,0.19);
-  background-color: #36dc9c;
-}
-
-#laboraa{
-  transform: translate(35%,50%);
-  border:0px solid black;
-}
-
-#expmed{
-  transform: translate(35%,50%);
-  background-color: #ffff;
-  border: 0px solid black;
-}
-#titulotabla{
-  font-family: 'Comfortaa', cursive;
-  font-size: 20px;
-}
-th, td {
-  border-bottom: 3px solid #ddd;
-}
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-tr{
-  font-size: 20px;
-  margin-bottom: 3px;
-  font-family: 'Quicksand', sans-serif;
-}
-/*laboratorios*/
-header{
-    background-color: #fff;
-}
-.info{
-    font-size: 25px;
-    font-family: 'Comfortaa', cursive;
-}
-
-.hamburger-menu {
-    position: relative;
-    z-index: 99;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    display: none;
-  }
-  
-  .hamburger-menu .bar {
-    position: relative;
-    width: 100%;
-    height: 3px;
-    background-color: #eae5a4;
-    border-radius: 3px;
-    transition: 0.5s;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .logo img {
-    width: 120px;
-    margin-right: 0.6rem;
-    margin-top: -0.6rem;
-  }
-  .titulo{
-    position: center;
-  }  
-  .table{
-    background-color:antiquewhite;
-  }
-  
-  table,.tr1,.th1,.td1{
-    border: 2px solid #000;
-    width: 600px;
-    height: 50px;
-    text-align: center;
-  }
-  .tdb{
-    width: 200px;
-  }
-  section.tabla{
-    height: 1000px;
-    background: #36D1DC;
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-    background: linear-gradient(to right, #5B86E5, #36D1DC);
-  }
-  /*Vista medico*/
-.vistamedico{
-  background-color: #dfdfdf;
-  margin: 0px;
-  
-}
-h1{
-  font-family: Arial, Helvetica, sans-serif;
-}
-a{
-  font-family: 'Goudy Bookletter 1911', serif;
-  font-size: 22px;
-  margin-left: 10px;
-}
-
-.DatosMedico{
-  width: 800px;
-  background-color: #cdcdcd;
- /* margin-right: 50px;*/
-  margin-left: 300px;
+.lista {
   margin-top: 30px;
-  border-radius: 9px;
-}
-
-.ExpedientePaciente{
-  background-color: #f5f5f5;
-  height: 400px;
-  width: 500px;
-  margin-top: 30px;
-  margin-right: 100px;
-  margin-left: 450px;
-  border-radius: 9px;
-}
-
-.lista2 {
   margin-left: 30px;
-  font-family: 'Comfortaa', cursive;
-  
-}
-.DiagnosticoTratamiento{
-  background-color: #cdcdcd;
-  height: 31vh;
-  width: 800px;
-  margin-right: 6%;
-  margin-left: 300PX;
-  margin-top: 30px;
-  border-radius: 9px;
 }
 
-.DiagnosticoTratamiento h1{
-text-align: center;
-margin-bottom: 5px;
-}
-
-.diagnostico{
-  margin-bottom: 20px;
-}
-
-.busqueda{
-  margin-top: 20px;
-  transform: translate(260%,0%);
-  width: 220px;
-  height: 80px;
-  border-radius: 19px solid black;
-}
-
-.buscar1{
-  margin-top: 20px;
-  float:left;
-  
-}
-.buscar2{
-  margin-top: 20px;
-  float:right;
-  transform: translate(90%,-174%);
-
-}
-.btnB{
-  background-color: #ffff;
-  color: #000;
-  border: 0px;
-  height:28px;
-  width: 70px;
-  border-radius: 8px;
-  box-shadow: 0 1px 1px black;
-}
-.btnB:hover{
-  background-color: #000;
-  color: #ffff ;
-  
-}
-.buscarP{
-  width: 200px;
-}
-.boton2{
+.boton1 {
   margin-top: 20px;
   border-radius: 4px;
   font-size: 20px;
@@ -347,13 +122,300 @@ margin-bottom: 5px;
   width: 80px;
   background-color: #ffff;
   color: #000;
- border: 0px;
- transform: translate(-30%,0%);
-  
-}
-.boton2:hover{
-  background-color: #000;
-  color: #ffff ;
+  border: 0px;
 }
 
+.boton1:hover {
+  background-color: #000;
+  color: #ffff;
+}
+
+li {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  color: #20479c;
+}
+
+.btninfo {
+  width: 250px;
+  height: 40px;
+  transform: translate(7%, -20%);
+  border-radius: 5px;
+  border-color: #36dc9c;
+  color: #000;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.btninfo:hover {
+  opacity: 1;
+  box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.24), 0 15px 30px 0 rgba(0, 0, 0, 0.19);
+  background-color: #36dc9c;
+}
+
+#laboraa {
+  transform: translate(50%, 50%);
+  border: 0px solid black;
+  width: 500px;
+}
+
+#expmed {
+  transform: translate(12%, 50%);
+  background-color: #ffff;
+  border: 0px solid black;
+}
+
+#titulotabla {
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+}
+
+th,td {
+  border-bottom: 3px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr {
+  font-size: 20px;
+  margin-bottom: 3px;
+  font-family: 'Quicksand', sans-serif;
+}
+.etiquetas{
+  font-size: 20px;
+}
+/*laboratorios*/
+header {
+  background-color: #fff;
+}
+
+.info {
+  font-size: 25px;
+  font-family: 'Lobster Two', cursive;
+}
+
+.hamburger-menu {
+  position: relative;
+  z-index: 99;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.hamburger-menu .bar {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: #eae5a4;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.titulo {
+  position: center;
+}
+
+.table {
+  background-color: antiquewhite;
+}
+
+table,.tr1,.th1,.td1 {
+  border: 2px solid #000;
+
+  height: 50px;
+  text-align: center;
+}
+
+.table1 {
+  background-color: antiquewhite;
+}
+
+table,
+.tr1,
+.th1,
+.td1 {
+  border: 2px solid #000;
+  width: 850px;
+  height: 50px;
+  text-align: center;
+}
+
+.tdb {
+  width: 200px;
+}
+
+section.tabla {
+  height: 1000px;
+  background: #36D1DC;
+  background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+  background: linear-gradient(to right, #5B86E5, #36D1DC);
+}
+.ExpedientePaciente2 {
+  background-color: #92ddc6;
+  height: 200px;
+  width: 500px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 450px;
+  border-radius: 9px;
+  box-shadow: 7px 13px 40px black;
+}
+
+/*Vista medico*/
+
+.vistamedico {
+  background-color: #dfdfdf;
+  margin: 0px;
+}
+
+.tituloProyecto {
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+}
+.infoUbi{
+  font-family: 'Roboto Slab', serif;
+  font-weight:normal ;
+}
+a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  margin-left: 10px;
+  font-weight: 900;
+}
+.etiquetas2{
+  font-size: 18px;
+  margin-left: 5px;
+}
+.infoPaciente {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  color: #000;
+}
+
+.DatosMedico {
+  width: 800px;
+  background-color: #d9d9d9;
+  /* margin-right: 50px;*/
+  margin-left: 300px;
+  margin-top: 30px;
+  border-radius: 9px;
+  box-shadow: 7px 13px 40px black;
+}
+
+.ExpedientePaciente {
+  background-color: #92ddc6;
+  height: 400px;
+  width: 500px;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 450px;
+  border-radius: 9px;
+  box-shadow: 7px 13px 40px black;
+}
+
+.lista2 {
+  margin-left: 30px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.DiagnosticoTratamiento {
+  background-color: #d9d9d9;
+  height: 31vh;
+  width: 800px;
+  margin-right: 6%;
+  margin-left: 300PX;
+  margin-top: 30px;
+  border-radius: 9px;
+  box-shadow: 7px 13px 40px black;
+}
+
+.DiagnosticoTratamiento h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.diagnostico {
+  margin-bottom: 20px;
+}
+
+.busqueda {
+  margin-top: 20px;
+  transform: translate(260%, 0%);
+  width: 220px;
+  height: 80px;
+  border-radius: 19px solid black;
+}
+
+.buscar1 {
+  margin-top: 30px;
+  float: left;
+}
+
+.buscar2 {
+  margin-top: 20px;
+  float: right;
+  transform: translate(80%, -120%);
+
+}
+.buscarP {
+  width: 200px;
+  font-size: 16px;
+}
+.btnB {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+  border-radius: 18px ;
+  /*box-shadow: 0 1px 1px black;*/
+}
+.btnB2:hover{
+  cursor: pointer;
+}
+.lupa{
+  max-width: 40px;
+  max-height: 40px;
+}
+.btnB2 {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
+  height: 30px;
+  width: 70px;
+  border-radius: 18px ;
+  box-shadow: 0 1px 1px black;
+}
+.btnB:hover{
+  cursor: pointer;
+  
+}
+.boton2 {
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 20px;
+  height: 35px;
+  width: 80px;
+  background-color: #ffff;
+  color: #000;
+  border: 0px;
+  transform: translate(-30%, 0%);
+  margin-bottom: 20px;
+}
+
+.boton2:hover {
+  background-color: #000;
+  color: #ffff;
+}
+
+.laboratorios {
+  transform: translate(43%, 0%);
+  margin-top: 2%;
+}
 
