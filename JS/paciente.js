@@ -57,7 +57,6 @@ conexion.query($query, function (err, rows){
                 var celdades = newRow.insertCell(0);        
                 var textodes = document.createTextNode(rows[i].descrpcion);
                 celdades.appendChild(textodes);
-                
             }        
         } 
     }
