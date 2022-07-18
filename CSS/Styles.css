@@ -194,12 +194,13 @@ header {
 }
 .vistalaboratorio{
   background: #03888d;
-  background: -webkit-linear-gradient(to right, #5B86E5, #03888d);
-  background: linear-gradient(to right, #5B86E5, #03888d);
 }
-.info {
-  font-size: 25px;
-  font-family: 'Lobster Two', cursive;
+.infoPcNv {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  color: #000;
+  margin-right: 20px;
+  font-weight: 300;
 }
 
 .hamburger-menu {
@@ -226,8 +227,11 @@ header {
   position: center;
 }
 
-.table {
-  background-color: antiquewhite;
+table {
+  background-color: #92ddc6;
+  border-collapse: collapse;
+  width: 100px;
+  height: auto;
 }
 
 table,.tr1,.th1,.td1 {
@@ -246,21 +250,12 @@ table,
 .th1,
 .td1 {
   border: 2px solid #000;
-  width: 850px;
+  width: 400px;
   height: 50px;
   text-align: center;
+  transform: translate(0%,0%);
 }
 
-.tdb {
-  width: 200px;
-}
-
-section.tabla {
-  height: 1000px;
-  background: #36D1DC;
-  background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-  background: linear-gradient(to right, #5B86E5, #36D1DC);
-}
 .ExpedientePaciente2 {
   background-color: #92ddc6;
   height: 200px;
@@ -273,8 +268,45 @@ section.tabla {
 }
 .imgLb{
 float: left;
+margin-left: 20px;
 max-width: 800px;
 max-height: 800px;
+}
+.añadirPC{
+  background: #fff;
+  height: 190px;
+  width: 390px;
+  transform: translate(122%, 0%);
+  border-radius: 9px;
+}
+.AñadirDatos{
+  border: 2px solid #000;
+  transform: translate(-25%,0%);
+  float: right;
+}
+.btnAñadirPC{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  transform: translate(615%, 0%);
+  width: 100px;
+  height: 25px;
+}
+.btnGuardarPc{
+  margin-bottom: 20px;
+  transform: translate(262%, 0%);
+  height: 30px;
+  width: 60px;
+}
+.btnGuardarPc:hover{
+  background-color: #233dff;
+  border: 0px;
+  cursor: pointer;
+}
+
+.listaLB{
+text-align: center;
+margin-top: 20px;
+margin-bottom: auto;
 }
 /*Vista medico*/
 
@@ -441,14 +473,14 @@ a {
   color: #ffff;
 }
 
-.laboratorios {
-  transform: translate(43%, 0%);
-  margin-top: 2%;
+select{
+  font-size: 18px;
+  
 }
 
 .actualizarDatos{
   background: #fff;
-  height: 180px;
+  height: 190px;
   width: 350px;
   transform: translate(150%, 0%);
   border-radius: 9px;
@@ -461,9 +493,8 @@ a {
   width: 120px;
 }
 .btnActDatos:hover{
-  background-color: #eae5a4;
+  background-color: #233dff;
   border: 0px;
-  
 }
 .lista3 {
   margin-left: 10px;
@@ -475,5 +506,11 @@ a {
 }
 .btnGuardarDatos{
   margin-top: 20px;
-  transform: translate(140%, 0%);
+  transform: translate(130%, 0%);
+  width: 100px;
+  height: 25px;
+}
+.btnGuardarDatos:hover{
+  background-color: #233dff;
+  border: 0px;
 }
