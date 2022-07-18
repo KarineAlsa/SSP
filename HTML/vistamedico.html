@@ -5,10 +5,13 @@
     <script src="../JS/validar.js"></script>
 </head>
 
-<body class="vistapaciente">
+<body class="vistamedico">
 
     <header>
-        <br><br>
+        <br>
+        <div>
+            <img src="../IMG/laboratorio.png" class="imgLb" alt="Logo" >
+        </div>
         <div class="container-case">
             <center><h1 class="tituloProyecto">Centro de analisis clinicos SSP</h1></center>
             <center><br><a class="infoUbi">Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
@@ -33,7 +36,7 @@
             <input id="buscarP" class="buscarP">
         </section>
         <div class="buscar2">
-            <button type="button" class="btnB" onclick="buscar()"><img src="../IMG/lupa.png" class="lupa"></button>
+            <button type="button" class="btnBuscar" onclick="buscar()"><img src="../IMG/lupa.png" class="lupa"></button>
         </div>    
     </div>
     
@@ -56,6 +59,21 @@
             </ul>
         </div>
     </div>
+    <button type="button" class="btnActDatos" onclick="actualizar()">Actualizar Datos</button>
+    
+    <div class="actualizarDatos">
+        <div class="lista3">
+            <br>
+                <a class="infoPaciente"> Edad </label> </a><input class="ActDatos">
+                <br><br>
+                <a class="infoPaciente"> Peso </label></a><input class="ActDatos">
+                <br><br>
+                <a class="infoPaciente"> Estatura </label></a><input class="ActDatos">
+                <br>
+        </div>
+        <button type="button" class="btnGuardarDatos" onclick>Guarda Datos</button>
+    </div>
+
     <br><br>
     <div class="DiagnosticoTratamiento">
         <br>
@@ -63,7 +81,7 @@
         <hr>
         <br>
         <h1>Tratamiento </h1> <input class="diagnostico" id="tratamiento">
-        <center><button class="btnB2" onclick="cargarDatos()">Agregar</button></center>
+        <center><button class="btnagregar" onclick="cargarDatos()"><img src="../IMG/agregar.png" class="agregar"></button></center>
     </div>
     <br>
     <br>
