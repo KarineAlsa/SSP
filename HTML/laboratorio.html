@@ -7,45 +7,58 @@
 
 <body class="vistalaboratorio">
     <header>
+        <br>
+        <div>
+            <img src="../IMG/lab2.png" class="imgLb" alt="Logo" >
+        </div>
         <div class="container-case">
-            <div class="logo">
-            <img src="../IMG/laboratorio.png" alt="Logo"/>
-            <h1 class="titulo"> LABORATORIOS SSP</h1>
-            </div>
-            <center><a class="info">Centro de analisis clinicos SSP</a></center>
-            <center><br><a class="info">Dirección: Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
-            <hr>
+            <center><h1 class="tituloProyecto">Centro de analisis clinicos SSP</h1></center>
+            <center><br><a class="infoUbi">Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
+            <br><hr>
             <div class="overlay"></div>
             <div class="hamburger-menu">
               <div class="bar"></div>
             </div>
         </div>
     </header>
+
+    <button type="button" class="btnAñadirPC" onclick="añadirPc()"> Añadir paciente</button>
     
-    <section class="tabla">
-        <br>
-        
-    <div >
+    <div class="añadirPc">
+            <br>
+                <a class="infoPcNv"> Nombre </label> </a><input class="AñadirDatos">
+                <br><br>
+                <a class="infoPcNv"> Codigo </label></a><input class="AñadirDatos">
+                <br><br>
+                <a class="infoPcNv"> Estudio  </label></a><input class="AñadirDatos">
+                <br><br>
+        <button type="button" class="btnGuardarPc" onclick>Guardar</button>
+    </div>
+    <div class="tabla">
         <center>
-            <br>
-            <br><center><label id="haypacientes"></label></center>
-            <br>
-        <table id= "tablalab1" class="table">
-            <tr class="tr2">
-                
-                
-                <th style="width:50px"class="th1">Codigos</th>
-                
-            </tr>
-             
-        </table>
-        <table id= "tablalab" class="table1">
-            
-             
-        </table>
-    </center>
-    <br>
-    <center><button class="btnB" onclick="orden2()">Refrescar</button></center>
+        <br><br><center><label id="haypacientes"></label></center>
+            <table id= "tablalab1" class="table">
+                <tr class="tr2">
+                    <th style="width:50px"class="th1">Codigos</th>    
+                </tr>
+            </table>
+            <table id= "tablalab" class="table1">
+             <!--CODIGO DE JAVA-->
+            </table>
+        </center>
+    </div>
+    <div class="tabla2">
+        <center>
+            <br><br><center><label id="haypacientes"></label></center>
+                <table id= "tablalab1" class="table">
+                    <tr class="tr2">
+                        <th style="width:50px"class="th1">Codigos</th>    
+                    </tr>
+                </table>
+                <table id= "tablalab" class="table1">
+                 <!--CODIGO DE JAVA-->
+                </table>
+            </center>
     </div>
     <div class="busqueda">
         <section class="buscar1">
@@ -55,11 +68,9 @@
             <button type="button" class="btnB" onclick="busqueda()"><img src="../IMG/lupa.png" class="lupa"></button>
         </div>    
     </div>
-        
-    </div>
-  
-      <div class="ExpedientePaciente2">
-        <br><center><h1>Expediente del paciente</h1></center><br>
+
+    <div class="ExpedientePaciente2">
+        <br><center><h1>Información del paciente</h1></center><br>
         <div class="lista2">
             <ul>
                 <li class="infoPaciente"> Nombre: <label id="nombrepaciente"></label></li>
@@ -71,8 +82,10 @@
             </ul>
         </div> 
     </div>
-    <div class="laboratorios">
-        <select name="laboratorios">
+
+    <div class="listaLB">
+        <select name="laboratorios" size="3">
+            <option selected>LABORATORIOS</option>
             <option>Prueba COVID</option>
             <option>Prueba de embarazo</option>
             <option>Analisis de sangre</option>
@@ -82,10 +95,10 @@
             </select>
       <center><button class="btnB" style="display:none"id="agregar"onclick="agregar()">Agregar</button></center>
     </div>
-    
-      <center><button class="boton2" onclick="salir()">Salir</button> </center>  
-</section>
-<script src="../JS/laboratorio.js"></script>
+    <br><br><br><br><br><br>
+    <center><button class="boton2" onclick="salir()">Salir</button> </center> 
+
+    <script src="../JS/laboratorio.js"></script>
 </body>
 
 </html>
