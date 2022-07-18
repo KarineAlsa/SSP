@@ -12,6 +12,7 @@
   padding: 0px;
   box-sizing: border-box;
 }
+/*INICIO*/
 
 .form-login {
   width: 450px;
@@ -191,7 +192,11 @@ tr {
 header {
   background-color: #fff;
 }
-
+.vistalaboratorio{
+  background: #03888d;
+  background: -webkit-linear-gradient(to right, #5B86E5, #03888d);
+  background: linear-gradient(to right, #5B86E5, #03888d);
+}
 .info {
   font-size: 25px;
   font-family: 'Lobster Two', cursive;
@@ -266,12 +271,15 @@ section.tabla {
   border-radius: 9px;
   box-shadow: 7px 13px 40px black;
 }
-
+.imgLb{
+float: left;
+max-width: 800px;
+max-height: 800px;
+}
 /*Vista medico*/
 
 .vistamedico {
-  background-color: #dfdfdf;
-  margin: 0px;
+  background: #03888d;
 }
 
 .tituloProyecto {
@@ -296,12 +304,13 @@ a {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
   color: #000;
+  margin-right: 20px;
+  font-weight: 300;
 }
 
 .DatosMedico {
   width: 800px;
-  background-color: #d9d9d9;
-  /* margin-right: 50px;*/
+  background-color: #d6ebfc;
   margin-left: 300px;
   margin-top: 30px;
   border-radius: 9px;
@@ -309,7 +318,7 @@ a {
 }
 
 .ExpedientePaciente {
-  background-color: #92ddc6;
+  background-color: #dadfee;
   height: 400px;
   width: 500px;
   margin-top: 30px;
@@ -325,8 +334,8 @@ a {
 }
 
 .DiagnosticoTratamiento {
-  background-color: #d9d9d9;
-  height: 31vh;
+  background-color: #cae8ff;
+  height: 39vh;
   width: 800px;
   margin-right: 6%;
   margin-left: 300PX;
@@ -338,10 +347,12 @@ a {
 .DiagnosticoTratamiento h1 {
   text-align: center;
   margin-bottom: 5px;
+  
 }
 
 .diagnostico {
   margin-bottom: 20px;
+  border-color: #000;
 }
 
 .busqueda {
@@ -366,22 +377,38 @@ a {
 .buscarP {
   width: 200px;
   font-size: 16px;
+  border-color: #000;
 }
-.btnB {
+.btnBuscar {
   background-color: #fff;
   color: #000;
   border: 1px solid black;
   height: 50px;
   width: 50px;
   border-radius: 18px ;
-  /*box-shadow: 0 1px 1px black;*/
 }
-.btnB2:hover{
+.btnBuscar:hover{
   cursor: pointer;
 }
 .lupa{
   max-width: 40px;
   max-height: 40px;
+}
+.btnagregar{
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+}
+.btnagregar:hover{
+  cursor: pointer;
+}
+.agregar{
+  text-align: center;
+  max-width: 40px;
+  max-height: 40px;
+  transform: translate(7%,0%);
 }
 .btnB2 {
   background-color: #fff;
@@ -419,3 +446,34 @@ a {
   margin-top: 2%;
 }
 
+.actualizarDatos{
+  background: #fff;
+  height: 180px;
+  width: 350px;
+  transform: translate(150%, 0%);
+  border-radius: 9px;
+}
+.btnActDatos{
+  margin-bottom: 20px;
+  margin-top: 30px;
+  transform: translate(530%, 0%);
+  height: 30px;
+  width: 120px;
+}
+.btnActDatos:hover{
+  background-color: #eae5a4;
+  border: 0px;
+  
+}
+.lista3 {
+  margin-left: 10px;
+}
+.actDatos{
+  border: 2px solid #000;
+  transform: translate(-15%,15%);
+  float: right;
+}
+.btnGuardarDatos{
+  margin-top: 20px;
+  transform: translate(140%, 0%);
+}
