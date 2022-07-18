@@ -65,7 +65,7 @@
             <input id="buscarP" class="buscarP">
         </section>
         <div class="buscar2">
-            <button type="button" class="btnB" onclick="busqueda()"><img src="../IMG/lupa.png" class="lupa"></button>
+            <button type="button" class="btnB" onclick="buscar()"><img src="../IMG/lupa.png" class="lupa"></button>
         </div>    
     </div>
 
@@ -83,9 +83,9 @@
         </div> 
     </div>
 
-    <div class="listaLB">
-        <select name="laboratorios" size="3">
-            <option selected>LABORATORIOS</option>
+    <div id="box" style="display:none" class="listaLB" >
+        <select name="laboratorios" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+            
             <option>Prueba COVID</option>
             <option>Prueba de embarazo</option>
             <option>Analisis de sangre</option>
