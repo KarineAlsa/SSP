@@ -246,7 +246,7 @@ FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio
                 var apellido=apelli.nodeValue;
                 var codig= document.createTextNode(rows[i].codigo);
                 var codigo=codig.nodeValue;
-                altita(codigo);
+                anadir(codigo);
                 /*var newRow = tablaR.insertRow(-1);
                 var celdaNombre = newRow.insertCell(0);
                 var celdaApellido = newRow.insertCell(1);
@@ -262,27 +262,23 @@ FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio
                 identificador.appendChild(textoidentificador);
                 celdaBoton.appendChild(button); */
             }
-            orden();
+            ordenar();
         }
     });
 
 var t = new Arbol()
 
-  function altita (apellido,nombre,codigo) {
+  function anadir (apellido,nombre,codigo) {
     t.anadir(apellido,nombre,codigo);
   }
 
-  function orden () {  
+  function ordenar () {  
     t.INORDEN();
 }
 
-function orden2 () {  
-  const $elemento = document.querySelector("#tablalab");
-  $elemento.innerHTML = "";
-  t.INORDEN();
-}
-
-function busqueda(){
+var id;
+var pacientesistema;
+function buscar(){
   var codigo=document.getElementById('buscarP').value;
   $query = `SELECT id_inicio,nombre, apellidoP,apellidoM,codigo
     FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P WHERE codigo='${codigo}'`;
@@ -298,7 +294,8 @@ function busqueda(){
         console.log("ejecutado correctamente", rows);
         var long = rows.length;
         if(long>0){
-            var id=rows[0].id_inicio;
+            pacientesistema=1;
+            id=rows[0].id_inicio;
             var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
             var codigo1 = rows[0].codigo;
             
@@ -312,6 +309,8 @@ function busqueda(){
               document.getElementById('estado').innerHTML="No espera ningun resultado";
               const $button = document.querySelector("#agregar");
               $button.style.display="none";
+              const $box=document.querySelector('#box');
+              $box.style.display="none";
               
             }
             else{
@@ -319,30 +318,102 @@ function busqueda(){
               document.getElementById('estado').innerHTML="En espera";
               const $button = document.querySelector("#agregar");
               $button.style.display="block";
+              const $box=document.querySelector('#box');
+              $box.style.display="block";
             }
             
         }
 
-        else {
-            
-            alert("Paciente no encontrado");}
+        if(long<0) {
+          $query = `SELECT codigoExt, nombre, apellidoP, apellidoM, tipoEstudio
+          FROM pacientesExternos WHERE turno='${codigo}'`;
+          conexion.query($query, function (err, rows){
+        
+            if (err){
+                console.log ("error en el query");
+                console.log (err);
+            return;
+            }
+            else{  
+              console.log("ejecutado correctamente", rows);
+              long = rows.length;
+              if(long>0){
+                pacientesistema=2;
+                id=rows[0].turno;
+                var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
+                var estudio = rows[0].estudio;
+              
+                //idpaciente=id;
+                document.getElementById('nombrepaciente').innerHTML=nombre;
+                document.getElementById('codigopaciente').innerHTML=turno;
+                document.getElementById('estado').innerHTML=estudio;
+                
+              }
+            else{
+              alert("Paciente no encontrado");  
+              pacientesistema=3;
+              
+            }
+
+          }
+        });
+
+      }  
     }
     });
 
 
 }
 
+function anadirEstudio(){
+  var box = document.getElementById("box2");
+  var seleccionado = box.options[box.selectedIndex].text;
+
+  $query = `INSERT INTO laboratorio (id_P,descrpcion) VALUES ('${id}','${seleccionado}')`;
+    conexion.query($query, function (err) {
+        if (err) {
+            console.log("error en el query");
+            console.log(err);
+            return;
+        }
+        else { 
+            alert("Guardado en el expediente del paciente") 
+        }
+    });
+}
+
 function agregar(){
+  
+  if(pacientesistema==1){
+      anadirEstudio();
+  }
+  if(pacientesistema==2){
+    alert("archivo enviado paciente externo")
+  }
+  if(pacientesistema==3){
+    alert("Paciente no encontrado en lista de espera");
+  }
+ 
+
   var codigo=document.getElementById('codigopaciente').innerHTML;
   console.log(codigo);
   t.remove(codigo);
+
   const $button = document.querySelector("#agregar");
   $button.style.display="none";
+
+  const $box=document.querySelector('#box');
+  $box.style.display="none";
+
   document.getElementById('estado').innerHTML="No espera ningun resultado";
+
   const $elemento = document.querySelector("#tablalab");
   $elemento.innerHTML = "";
+
   t.INORDEN();
+
   if($elemento.innerHTML===""){
     document.getElementById('haypacientes').innerHTML="No hay pacientes en espera de resultados";
   }
+
 }

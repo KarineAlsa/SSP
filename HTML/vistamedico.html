@@ -10,7 +10,7 @@
     <header>
         <br>
         <div>
-            <img src="../IMG/laboratorio.png" class="imgLb" alt="Logo" >
+            <img src="../IMG/doctor.png" class="imgLb" alt="Logo" >
         </div>
         <div class="container-case">
             <center><h1 class="tituloProyecto">Centro de analisis clinicos SSP</h1></center>
@@ -43,38 +43,49 @@
     <div class="ExpedientePaciente">
         <br><center><h1>Expediente del paciente</h1></center><br>
         <div class="lista2">
-            <ul>
-                <li class="infoPaciente"> Nombre: <label id="nombrepaciente"></label></li>
+            <ul >
+                <li class="infoPaciente"> Nombre: <label class="datosdelpaciente"id="nombrepaciente"></label></li>
                 <br>
-                <li class="infoPaciente"> Edad: <label id="edadpaciente"></label> </li>
+                <li class="infoPaciente"> Edad: <label class="datosdelpaciente"id="edadpaciente"></label> </li>
                 <br>
-                <li class="infoPaciente"> Peso: <label id="pesopaciente"></label></li>
+                <li class="infoPaciente"> Peso: <label class="datosdelpaciente"id="pesopaciente"></label></li>
                 <br>
-                <li class="infoPaciente"> Sexo: <label id="sexopaciente"></label></li>
+                <li class="infoPaciente"> Sexo: <label class="datosdelpaciente"id="sexopaciente"></label></li>
                 <br>
-                <li class="infoPaciente"> Estatura: <label id="estaturapaciente"></label></li>
+                <li class="infoPaciente"> Estatura: <label class="datosdelpaciente"id="estaturapaciente"></label></li>
                 <br>
                 <li class="infoPaciente"> Grupo Sanguineo: <label id="sangrepaciente"></label></li>
                 <li hidden> Id <label id="idpaciente" hidden></label></li>
             </ul>
         </div>
     </div>
-    <button type="button" class="btnActDatos" onclick="actualizar()">Actualizar Datos</button>
+    <button type="button" class="btnActDatos" onclick="aparecerActualizar()">Actualizar Datos</button>
     
-    <div class="actualizarDatos">
-        <div class="lista3">
-            <br>
-                <a class="infoPaciente"> Edad </label> </a><input class="ActDatos">
-                <br><br>
-                <a class="infoPaciente"> Peso </label></a><input class="ActDatos">
-                <br><br>
-                <a class="infoPaciente"> Estatura </label></a><input class="ActDatos">
-                <br>
-        </div>
-        <button type="button" class="btnGuardarDatos" onclick>Guarda Datos</button>
+    <div id="actualizar" class="actualizarDatos" style="display:none">
+            <table class="tabla3">
+                <tr class="tr3">
+                  <td ><a class="infoPaciente"> Edad </a> </td>
+                  <td > <input type="checkbox" class="checkbox"> </td>
+                  <td ><input id="edadActualizar" class="ActDatos"></td>
+                </tr>
+                <tr class="tr3">
+                  <td><a class="infoPaciente"> Peso </a> </td>
+                  <td><input type="checkbox"  class="checkbox"> </td>
+                  <td><input id="pesoActualizar" class="ActDatos"></td>
+                </tr>
+                <tr class="tr3">
+                  <td><a class="infoPaciente"> Estatura </a></td>
+                  <td><input type="checkbox"  class="checkbox"></td>
+                  <td><input id="estaturaActualizar" class="ActDatos"></td>
+                </tr>
+                  
+              </table>
+           
+        <button type="button" class="btnGuardarDatos" onclick="actualizarDatos()">Guarda Datos</button>
     </div>
 
     <br><br>
+
     <div class="DiagnosticoTratamiento">
         <br>
         <h1>Diagnóstico </h1> <input class="diagnostico" id="diagnostico">
@@ -91,4 +102,3 @@
 <script src="../JS/validar.js"></script>
 <script src="../JS/medico.js"></script>
 </html>
-

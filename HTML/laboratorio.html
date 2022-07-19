@@ -34,9 +34,10 @@
                 <br><br>
         <button type="button" class="btnGuardarPc" onclick>Guardar</button>
     </div>
+    
     <div class="tabla">
         <center>
-        <br><br><center><label id="haypacientes"></label></center>
+        <center><label id="haypacientes"></label></center>
             <table id= "tablalab1" class="table">
                 <tr class="tr2">
                     <th style="width:50px"class="th1">Codigos</th>    
@@ -84,7 +85,7 @@
     </div>
 
     <div id="box" style="display:none" class="listaLB" >
-        <select name="laboratorios" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+        <select id="box2"name="laboratorios" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
             
             <option>Prueba COVID</option>
             <option>Prueba de embarazo</option>

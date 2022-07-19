@@ -162,7 +162,7 @@ li {
 }
 
 #expmed {
-  transform: translate(12%, 50%);
+  transform: translate(80%, 50%);
   background-color: #ffff;
   border: 0px solid black;
 }
@@ -175,9 +175,12 @@ li {
 th,td {
   border-bottom: 3px solid #ddd;
 }
-
-tr:nth-child(even) {
+tr{
   background-color: #f2f2f2;
+
+}
+tr:nth-child(even) {
+  background-color: #d6ebfc;
 }
 
 tr {
@@ -188,6 +191,7 @@ tr {
 .etiquetas{
   font-size: 20px;
 }
+
 /*laboratorios*/
 header {
   background-color: #fff;
@@ -276,7 +280,7 @@ max-height: 800px;
   background: #fff;
   height: 190px;
   width: 390px;
-  transform: translate(122%, 0%);
+  transform: translate(125%, 0%);
   border-radius: 9px;
 }
 .AñadirDatos{
@@ -287,9 +291,12 @@ max-height: 800px;
 .btnAñadirPC{
   margin-top: 20px;
   margin-bottom: 20px;
-  transform: translate(615%, 0%);
-  width: 100px;
+  transform: translate(450%, 0%);
+  width: 140px;
   height: 25px;
+  background-color: #ffeb9b;
+  border: 0px;
+  font-size: 18px;
 }
 .btnGuardarPc{
   margin-bottom: 20px;
@@ -307,6 +314,9 @@ max-height: 800px;
 text-align: center;
 margin-top: 20px;
 margin-bottom: auto;
+}
+.tabla{
+  transform:translate(-5%,50%)
 }
 /*Vista medico*/
 
@@ -343,6 +353,7 @@ a {
 .DatosMedico {
   width: 800px;
   background-color: #d6ebfc;
+  background-color:#cae8ff;
   margin-left: 300px;
   margin-top: 30px;
   border-radius: 9px;
@@ -367,7 +378,7 @@ a {
 
 .DiagnosticoTratamiento {
   background-color: #cae8ff;
-  height: 39vh;
+  height: 33vh;
   width: 800px;
   margin-right: 6%;
   margin-left: 300PX;
@@ -477,40 +488,62 @@ select{
   font-size: 18px;
   
 }
-
-.actualizarDatos{
+/*.actualizarDatos{
   background: #fff;
   height: 190px;
   width: 350px;
   transform: translate(150%, 0%);
   border-radius: 9px;
-}
+  box-shadow: 0 6px 20px black;
+}*/
 .btnActDatos{
   margin-bottom: 20px;
   margin-top: 30px;
-  transform: translate(530%, 0%);
+  transform: translate(420%, 0%);
   height: 30px;
-  width: 120px;
+  width: 150px;
+  font-size: 18px;
+  background-color: #ffeb9b;
+  border: 0px;
 }
 .btnActDatos:hover{
-  background-color: #233dff;
+  background-color: #ffeb9b;
   border: 0px;
+  cursor: pointer;
 }
 .lista3 {
   margin-left: 10px;
 }
 .actDatos{
-  border: 2px solid #000;
-  transform: translate(-15%,15%);
-  float: right;
+  border: 1px solid #000;
+  font-size: 18px;
 }
 .btnGuardarDatos{
   margin-top: 20px;
-  transform: translate(130%, 0%);
-  width: 100px;
-  height: 25px;
+  transform: translate(-15%, 0%);
+  width: 130px;
+  height: 30px;
+  /*background-color: #82c2e2;*/
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  border: 0px;
 }
 .btnGuardarDatos:hover{
-  background-color: #233dff;
+  background-color: whitesmoke;
   border: 0px;
+  cursor: pointer;
+}
+.tabla3{
+  transform: translate(125%,0%);
+  }
+.tr3{
+    height: 50px;
+  }
+.actualizarDatos{
+text-align: center;
+}
+.checkbox{
+  width: 30px;
+  height: 30px;
 }
