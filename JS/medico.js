@@ -131,8 +131,7 @@ function actualizarDatos(){
             }
             else { 
                 alert("Guardado en el expediente del paciente") 
-                let $datosdelpaciente = document.getElementsByClassName('datosdelpaciente');
-                $datosdelpaciente.innerHTML = "";
+                
                 actualizarvista();
                 let $datosactualizar=document.getElementsByClassName('ActDatos');
                 for (var i = 0; i < $datosactualizar.length; i++) {

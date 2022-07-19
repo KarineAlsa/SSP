@@ -24,15 +24,25 @@
 
     <button type="button" class="btnAñadirPC" onclick="añadirPc()"> Añadir paciente</button>
     
-    <div class="añadirPc">
+    <div id ="añadirPc"class="añadirPc" style="display:none">
             <br>
-                <a class="infoPcNv"> Nombre </label> </a><input class="AñadirDatos">
+                <a class="infoPcNv"> Nombre </label> </a><input id="nombrepacienteexterno"class="AñadirDatos">
                 <br><br>
-                <a class="infoPcNv"> Codigo </label></a><input class="AñadirDatos">
+                <a class="infoPcNv"> Codigo </label></a><input id="codigopacienteexterno"class="AñadirDatos">
                 <br><br>
-                <a class="infoPcNv"> Estudio  </label></a><input class="AñadirDatos">
+                <a class="infoPcNv"> Estudio  </label></a>
+                <select id="estudiopacienteexterno"name="laboratoriosexterno" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+            
+                    <option>Prueba COVID</option>
+                    <option>Prueba de embarazo</option>
+                    <option>Analisis de sangre</option>
+                    <option>Biometria hematica</option>
+                    <option>Examen de orina</option>
+                    
+                    </select>
+              <!--  <a class="infoPcNv"> Estudio  </label></a><input class="AñadirDatos">-->
                 <br><br>
-        <button type="button" class="btnGuardarPc" onclick>Guardar</button>
+        <button type="button" class="btnGuardarPc" onclick="guardarPc()">Guardar</button>
     </div>
     
     <div class="tabla">
@@ -44,7 +54,7 @@
                 </tr>
             </table>
             <table id= "tablalab" class="table1">
-             <!--CODIGO DE JAVA-->
+             CODIGO DE JAVA
             </table>
         </center>
     </div>
@@ -74,11 +84,11 @@
         <br><center><h1>Información del paciente</h1></center><br>
         <div class="lista2">
             <ul>
-                <li class="infoPaciente"> Nombre: <label id="nombrepaciente"></label></li>
+                <li class="infoPaciente"> Nombre: <label class="infoPa"id="nombrepaciente"></label></li>
                 <br>
-                <li class="infoPaciente"> Codigo: <label id="codigopaciente"></label> </li>
+                <li class="infoPaciente"> Codigo: <label class="infoPa"id="codigopaciente"></label> </li>
                 <br>
-                <li class="infoPaciente"> Estado: <label id="estado"></label></li>
+                <li class="infoPaciente"> Estado: <label class="infoPa"id="estado"></label></li>
                 <br>
             </ul>
         </div> 

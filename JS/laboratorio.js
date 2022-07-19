@@ -280,6 +280,11 @@ var id;
 var pacientesistema;
 function buscar(){
   var codigo=document.getElementById('buscarP').value;
+  let $datosactualizar=document.getElementsByClassName('buscarP');
+                for (var i = 0; i < $datosactualizar.length; i++) {
+                    console.log($datosactualizar[i].id);
+                    $datosactualizar[i].value = "";//second console output
+                }
   $query = `SELECT id_inicio,nombre, apellidoP,apellidoM,codigo
     FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P WHERE codigo='${codigo}'`;
     conexion.query($query, function (err, rows){
@@ -324,9 +329,10 @@ function buscar(){
             
         }
 
-        if(long<0) {
+        if(long==0) {
+          console.log(codigo);
           $query = `SELECT codigoExt, nombre, apellidoP, apellidoM, tipoEstudio
-          FROM pacientesExternos WHERE turno='${codigo}'`;
+          FROM pacientesExternos WHERE codigoExt='${codigo}'`;
           conexion.query($query, function (err, rows){
         
             if (err){
@@ -335,18 +341,22 @@ function buscar(){
             return;
             }
             else{  
-              console.log("ejecutado correctamente", rows);
+              console.log("ejecutado correctamenteexterno", rows);
               long = rows.length;
               if(long>0){
                 pacientesistema=2;
-                id=rows[0].turno;
+                id=rows[0].codigoExt;
                 var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
-                var estudio = rows[0].estudio;
+                var estudio = rows[0].tipoEstudio;
               
                 //idpaciente=id;
                 document.getElementById('nombrepaciente').innerHTML=nombre;
-                document.getElementById('codigopaciente').innerHTML=turno;
+                document.getElementById('codigopaciente').innerHTML=id;
                 document.getElementById('estado').innerHTML=estudio;
+                const $button = document.querySelector("#agregar");
+                $button.style.display="block";
+                const $box=document.querySelector('#box');
+                $box.style.display="block";
                 
               }
             else{
@@ -381,23 +391,47 @@ function anadirEstudio(){
         }
     });
 }
+function eliminarPcExt(){
+
+  $query = `DELETE FROM pacientesExternos WHERE codigoExt='${id}'`;
+  conexion.query($query, function (err) {
+    if (err) {
+        console.log("error en el query");
+        console.log(err);
+        return;
+    }
+    
+  
+});
+}
 
 function agregar(){
   
   if(pacientesistema==1){
       anadirEstudio();
+      var codigo=document.getElementById('codigopaciente').innerHTML;
+      console.log(codigo);
+      t.remove(codigo);
+      document.getElementById('estado').innerHTML="No espera ningun resultado";
   }
   if(pacientesistema==2){
+    eliminarPcExt();
     alert("archivo enviado paciente externo")
+    let $datos= document.getElementsByClassName('infoPa');
+    console.log($datos);
+    
+        for (var i = 0; i < $datos.length; i++) {
+            
+            $datos[i].innerHTML = "";
+        }
+    
   }
   if(pacientesistema==3){
     alert("Paciente no encontrado en lista de espera");
   }
  
 
-  var codigo=document.getElementById('codigopaciente').innerHTML;
-  console.log(codigo);
-  t.remove(codigo);
+  
 
   const $button = document.querySelector("#agregar");
   $button.style.display="none";
@@ -405,7 +439,7 @@ function agregar(){
   const $box=document.querySelector('#box');
   $box.style.display="none";
 
-  document.getElementById('estado').innerHTML="No espera ningun resultado";
+  
 
   const $elemento = document.querySelector("#tablalab");
   $elemento.innerHTML = "";
@@ -416,4 +450,73 @@ function agregar(){
     document.getElementById('haypacientes').innerHTML="No hay pacientes en espera de resultados";
   }
 
+}
+
+function añadirPc(){
+  var bloque=document.getElementById('añadirPc').style.display;
+    if(bloque=="block"){
+        let $datosactualizar=document.getElementsByClassName('AñadirDatos');
+        for (var i = 0; i < $datosactualizar.length; i++) {
+            
+            $datosactualizar[i].value = "";
+        }
+        console.log($datosactualizar);
+        
+        document.getElementById('añadirPc').style.display="none";
+        
+    }
+    else{
+        document.getElementById('añadirPc').style.display="block";
+    }
+}
+
+function guardarPc(){
+  var nombre = document.getElementById('nombrepacienteexterno').value;
+  var nuevo =nombre.split([" "]);
+  
+  console.log(nuevo);
+  if(nuevo.length==3){
+    var nombrenuevo=nuevo[0];
+    var apellidoP=nuevo[1];
+    var apellidoM=nuevo[2];
+    console.log("tamaño 3 " + nombrenuevo + apellidoP + apellidoM);
+  }
+  if(nuevo.length==4){
+    var nombrenuevo=nuevo[0] + " " + nuevo[1];
+    var apellidoP=nuevo[2];
+    var apellidoM=nuevo[3];
+    console.log("tamaño 4 " + nombrenuevo + apellidoP + apellidoM);
+  }
+
+  var codigo= document.getElementById('codigopacienteexterno').value;
+  var box = document.getElementById('estudiopacienteexterno');
+  var estudio = box.options[box.selectedIndex].text;
+    if(nombre && codigo && estudio!=""){
+
+    
+    $query = `INSERT INTO pacientesExternos (nombre,apellidoP,apellidoM,codigoExt,tipoEstudio) VALUES ('${nombrenuevo}','${apellidoP}','${apellidoM}','${codigo}','${estudio}')`;
+    conexion.query($query, function (err) {
+        if (err) {
+            console.log("error en el query");
+            console.log(err);
+            return;
+        }
+        else { 
+            alert("Guardado en lista de espera");
+            let $pacientenuevo=document.getElementsByClassName('AñadirDatos');
+                for (var i = 0; i < $pacientenuevo.length; i++) {
+                    
+                    $pacientenuevo[i].value = "";//second console output
+                }
+            var bloque=document.getElementById('añadirPc').style.display;
+            if(bloque=="block"){
+            document.getElementById('añadirPc').style.display="none";
+            }
+        }
+    });
+    
+}else{
+    alert("No puede dejar en blanco uno de los campos");
+}
+    
 }

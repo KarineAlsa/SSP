@@ -205,6 +205,7 @@ header {
   color: #000;
   margin-right: 20px;
   font-weight: 300;
+  position: relative;
 }
 
 .hamburger-menu {
@@ -303,6 +304,7 @@ max-height: 800px;
   transform: translate(262%, 0%);
   height: 30px;
   width: 60px;
+  position: inline-block;
 }
 .btnGuardarPc:hover{
   background-color: #233dff;
