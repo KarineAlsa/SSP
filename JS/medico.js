@@ -60,12 +60,19 @@ function buscar(){
             document.getElementById('sexopaciente').innerHTML=sexo;
             document.getElementById('estaturapaciente').innerHTML=estatura;
             document.getElementById('sangrepaciente').innerHTML=sangre;     
-            
+            document.getElementById('botonact').style.display="block";
         }
 
         else {
-            
-            alert("Paciente no encontrado");}
+            document.getElementById('botonact').style.display="none";
+            alert("Paciente no encontrado");
+            document.getElementById('nombrepaciente').innerHTML="";
+            document.getElementById('edadpaciente').innerHTML="";
+            document.getElementById('pesopaciente').innerHTML="";
+            document.getElementById('sexopaciente').innerHTML="";
+            document.getElementById('estaturapaciente').innerHTML="";
+            document.getElementById('sangrepaciente').innerHTML="";  
+        }
     }
     });
 }
@@ -109,6 +116,12 @@ function aparecerActualizar(){
     }
     else{
         document.getElementById('actualizar').style.display="block";
+        var edad=document.getElementById('edadpaciente').innerHTML;
+        document.getElementById('edadActualizar').value=edad;
+        var peso=document.getElementById('pesopaciente').innerHTML;
+        document.getElementById('pesoActualizar').value=peso; 
+        var estatura=document.getElementById('estaturapaciente').innerHTML;  
+        document.getElementById('estaturaActualizar').value=estatura;
     }
     console.log(bloque);
     
@@ -144,9 +157,9 @@ function actualizarDatos(){
                 }
             }
         });
-
-    } else {
-        alert("No puede dejar en blanco ninguno de los campos");
+    }
+    else{
+        alert("Uno de los campos está vacío. Intente de nuevo");
     } 
 }
 
@@ -184,4 +197,46 @@ function actualizarvista(){
         }
 }
     });
+}
+
+function comprobar(obj){   
+    if (obj.checked){
+        document.getElementById('edadActualizar').readOnly = false;
+        document.getElementById('edadActualizar').value="";
+    }    
+    else{
+        document.getElementById('edadActualizar').readOnly = true;
+        var edad=document.getElementById('edadpaciente').innerHTML;
+        document.getElementById('edadActualizar').value=edad;
+    }
+ 
+}
+
+function comprobar2(obj){   
+    if (obj.checked){
+        document.getElementById('pesoActualizar').readOnly = false;
+        document.getElementById('pesoActualizar').value="";
+    }
+     
+    else{
+        document.getElementById('pesoActualizar').readOnly = true;
+        var peso=document.getElementById('pesopaciente').innerHTML;
+        document.getElementById('pesoActualizar').value=peso; 
+    }
+      
+}
+
+function comprobar3(obj)
+{   
+    if (obj.checked){
+        document.getElementById('estaturaActualizar').readOnly = false;
+        document.getElementById('estaturaActualizar').value="";
+    }
+        
+    else{
+        document.getElementById('estaturaActualizar').readOnly = true;
+        var estatura=document.getElementById('estaturapaciente').innerHTML;  
+        document.getElementById('estaturaActualizar').value=estatura;
+    }
+      
 }

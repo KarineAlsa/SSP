@@ -59,24 +59,24 @@
             </ul>
         </div>
     </div>
-    <button type="button" class="btnActDatos" onclick="aparecerActualizar()">Actualizar Datos</button>
+    <button id="botonact"style="display: none;"type="button" class="btnActDatos" onclick="aparecerActualizar()">Actualizar Datos</button>
     
     <div id="actualizar" class="actualizarDatos" style="display:none">
             <table class="tabla3">
                 <tr class="tr3">
                   <td ><a class="infoPaciente"> Edad </a> </td>
-                  <td > <input type="checkbox" class="checkbox"> </td>
-                  <td ><input id="edadActualizar" class="ActDatos"></td>
+                  <td > <input type="checkbox" class="checkbox" id="checkedad" onChange="comprobar(this)"> </td>
+                  <td ><input id="edadActualizar" class="ActDatos" readonly value=""></td>
                 </tr>
                 <tr class="tr3">
                   <td><a class="infoPaciente"> Peso </a> </td>
-                  <td><input type="checkbox"  class="checkbox"> </td>
-                  <td><input id="pesoActualizar" class="ActDatos"></td>
+                  <td><input type="checkbox"  class="checkbox" id="checkpeso" onChange="comprobar2(this)"> </td>
+                  <td><input id="pesoActualizar" class="ActDatos" readonly value=""></td>
                 </tr>
                 <tr class="tr3">
                   <td><a class="infoPaciente"> Estatura </a></td>
-                  <td><input type="checkbox"  class="checkbox"></td>
-                  <td><input id="estaturaActualizar" class="ActDatos"></td>
+                  <td><input type="checkbox"  class="checkbox" id="checkestatura" onChange="comprobar3(this)"></td>
+                  <td><input id="estaturaActualizar" class="ActDatos" readonly value=""></td>
                 </tr>
                   
               </table>
