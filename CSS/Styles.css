@@ -115,21 +115,7 @@ aside {
   margin-left: 30px;
 }
 
-.boton1 {
-  margin-top: 20px;
-  border-radius: 4px;
-  font-size: 20px;
-  height: 35px;
-  width: 80px;
-  background-color: #ffff;
-  color: #000;
-  border: 0px;
-}
 
-.boton1:hover {
-  background-color: #000;
-  color: #ffff;
-}
 
 li {
   font-family: 'Quicksand', sans-serif;
@@ -262,8 +248,8 @@ table,
 }
 
 .ExpedientePaciente2 {
-  background-color: #dadfee;
-  height: 200px;
+  background-color: #cae8ff;
+  height: 220px;
   width: 500px;
   margin-top: 60px;
   margin-right: 100px;
@@ -278,7 +264,7 @@ max-width: 800px;
 max-height: 800px;
 }
 .añadirPC{
-  background: #cae8ff;
+  background: #dadfee;
   height: 190px;
   width: 390px;
   transform: translate(125%, 0%);
@@ -305,10 +291,13 @@ max-height: 800px;
   height: 30px;
   width: 60px;
   position: inline-block;
+  border: 0px;
+  font-size: 14px;
+  border-radius: 5px;
 }
 .btnGuardarPc:hover{
-  background-color: #233dff;
-  border: 0px;
+  background-color: #d6ebfc;
+  border: 1px solid black;
   cursor: pointer;
 }
 
@@ -316,7 +305,7 @@ max-height: 800px;
 margin-top: 20px;
 margin-bottom: auto;
 /*text-align: center;*/
-transform: translate(42%, 0%);
+transform: translate(43%, 0%);
 }
 
 .tabEspera {
@@ -326,7 +315,33 @@ transform: translate(42%, 0%);
   margin-top: 30px;
 }
 
-
+.busqueda2 {
+  margin-top: 150px;
+  transform: translate(260%, 50%);
+  width: 220px;
+  height: 80px;
+  border-radius: 19px solid black;
+}
+.tabla{
+  margin-right: 30px;
+}
+.btnAgregarLb{
+  transform: translate(-10%, 0%);
+  margin-top: 20px;
+  height: 41px;
+  width: 60px;
+  position: inline-block;
+  border: 0px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.btnAgregarLb:hover{
+  cursor: pointer;
+}
+.enviar{
+  max-width: 50px;
+  max-height: 50px;
+}
 /*Vista medico*/
 
 .vistamedico {
@@ -361,7 +376,7 @@ a {
 
 .DatosMedico {
   width: 800px;
-  background-color: #d6ebfc;
+  /*background-color: #d6ebfc;*/
   background-color:#cae8ff;
   margin-left: 300px;
   margin-top: 30px;
@@ -373,7 +388,7 @@ a {
   background-color: #dadfee;
   height: 400px;
   width: 500px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-right: 100px;
   margin-left: 450px;
   border-radius: 9px;
@@ -391,7 +406,7 @@ a {
   width: 800px;
   margin-right: 6%;
   margin-left: 300PX;
-  margin-top: 30px;
+  margin-top: 10px;
   border-radius: 9px;
   box-shadow: 7px 13px 40px black;
 }
@@ -408,8 +423,8 @@ a {
 }
 
 .busqueda {
-  margin-top: 150px;
-  transform: translate(260%, 50%);
+  margin-top: 5px;
+  transform: translate(260%, 0%);
   width: 220px;
   height: 80px;
   border-radius: 19px solid black;
@@ -475,7 +490,7 @@ a {
   cursor: pointer;
   
 }
-.boton2 {
+.btnSalir {
   margin-top: 20px;
   border-radius: 4px;
   font-size: 20px;
@@ -484,13 +499,12 @@ a {
   background-color: #ffff;
   color: #000;
   border: 0px;
-  transform: translate(-30%, 0%);
   margin-bottom: 20px;
 }
 
-.boton2:hover {
-  background-color: #000;
-  color: #ffff;
+.btnSalir:hover {
+  background-color: #f0d7c5;
+  color: #000;
 }
 
 select{
@@ -508,7 +522,7 @@ select{
 .btnActDatos{
   margin-bottom: 20px;
   margin-top: 30px;
-  transform: translate(420%, 0%);
+  transform: translate(400%, 0%);
   height: 30px;
   width: 150px;
   font-size: 18px;
@@ -529,7 +543,6 @@ select{
 }
 .btnGuardarDatos{
   margin-top: 20px;
-  transform: translate(-15%, 0%);
   width: 130px;
   height: 30px;
   /*background-color: #82c2e2;*/
