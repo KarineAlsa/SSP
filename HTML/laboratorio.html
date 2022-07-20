@@ -31,7 +31,7 @@
                 <a class="infoPcNv"> Codigo </label></a><input id="codigopacienteexterno"class="AñadirDatos">
                 <br><br>
                 <a class="infoPcNv"> Estudio  </label></a>
-                <select id="estudiopacienteexterno"name="laboratoriosexterno" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                <select id="estudiopacienteexterno"name="laboratoriosexterno" onfocus='this.size=1;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
             
                     <option>Prueba COVID</option>
                     <option>Prueba de embarazo</option>
@@ -43,24 +43,12 @@
               <!--  <a class="infoPcNv"> Estudio  </label></a><input class="AñadirDatos">-->
                 <br><br>
         <button type="button" class="btnGuardarPc" onclick="guardarPc()">Guardar</button>
+        
     </div>
-    
-    <div class="tabla">
-        <center>
-        <center><label id="haypacientes"></label></center>
-            <table id= "tablalab1" class="table">
-                <tr class="tr2">
-                    <th style="width:50px"class="th1">Codigos</th>    
-                </tr>
-            </table>
-            <table id= "tablalab" class="table1">
-             CODIGO DE JAVA
-            </table>
-        </center>
-    </div>
-    <div class="tabla2">
-        <center>
-            <br><br><center><label id="haypacientes"></label></center>
+    <div class="tabEspera">
+        
+        <div class="tabla">
+            <label id="haypacientes"></label>
                 <table id= "tablalab1" class="table">
                     <tr class="tr2">
                         <th style="width:50px"class="th1">Codigos</th>    
@@ -69,8 +57,24 @@
                 <table id= "tablalab" class="table1">
                  <!--CODIGO DE JAVA-->
                 </table>
-            </center>
+            
+        </div>
+    
+        <div class="tabla2">
+            
+                <label id="haypacientes"></label>
+                    <table id= "tablalab" class="table">
+                        <tr class="tr2">
+                            <th style="width:50px"class="th1">Codigos</th>    
+                        </tr>
+                    </table>
+                    <table id= "tablalab2" class="table1">
+                     <!--CODIGO DE JAVA-->
+                    </table>
+                
+        </div>
     </div>
+    
     <div class="busqueda">
         <section class="buscar1">
             <input id="buscarP" class="buscarP">
@@ -95,7 +99,7 @@
     </div>
 
     <div id="box" style="display:none" class="listaLB" >
-        <select id="box2"name="laboratorios" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+        <select id="box2"name="laboratorios" onfocus='this.size=1;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
             
             <option>Prueba COVID</option>
             <option>Prueba de embarazo</option>
@@ -103,10 +107,11 @@
             <option>Biometria hematica</option>
             <option>Examen de orina</option>
             
-            </select>
-      <center><button class="btnB" style="display:none"id="agregar"onclick="agregar()">Agregar</button></center>
+        </select>
     </div>
-    <br><br><br><br><br><br>
+
+    <center><button class="btnB" style="display:none"id="agregar"onclick="agregar()">Agregar</button></center>
+    <br><br><br>
     <center><button class="boton2" onclick="salir()">Salir</button> </center> 
 
     <script src="../JS/laboratorio.js"></script>

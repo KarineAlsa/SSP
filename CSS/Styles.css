@@ -262,10 +262,10 @@ table,
 }
 
 .ExpedientePaciente2 {
-  background-color: #92ddc6;
+  background-color: #dadfee;
   height: 200px;
   width: 500px;
-  margin-top: 30px;
+  margin-top: 60px;
   margin-right: 100px;
   margin-left: 450px;
   border-radius: 9px;
@@ -278,7 +278,7 @@ max-width: 800px;
 max-height: 800px;
 }
 .añadirPC{
-  background: #fff;
+  background: #cae8ff;
   height: 190px;
   width: 390px;
   transform: translate(125%, 0%);
@@ -292,7 +292,7 @@ max-height: 800px;
 .btnAñadirPC{
   margin-top: 20px;
   margin-bottom: 20px;
-  transform: translate(450%, 0%);
+  transform: translate(440%, 0%);
   width: 140px;
   height: 25px;
   background-color: #ffeb9b;
@@ -313,13 +313,20 @@ max-height: 800px;
 }
 
 .listaLB{
-text-align: center;
 margin-top: 20px;
 margin-bottom: auto;
+/*text-align: center;*/
+transform: translate(42%, 0%);
 }
-.tabla{
-  transform:translate(-5%,50%)
+
+.tabEspera {
+  display: flex;
+  position: absolute;
+  left: 20%;
+  margin-top: 30px;
 }
+
+
 /*Vista medico*/
 
 .vistamedico {
@@ -401,8 +408,8 @@ a {
 }
 
 .busqueda {
-  margin-top: 20px;
-  transform: translate(260%, 0%);
+  margin-top: 150px;
+  transform: translate(260%, 50%);
   width: 220px;
   height: 80px;
   border-radius: 19px solid black;
@@ -538,6 +545,8 @@ select{
 }
 .tabla3{
   transform: translate(125%,0%);
+  border: 0px;
+  box-shadow: 0 6px 20px black;
   }
 .tr3{
     height: 50px;
