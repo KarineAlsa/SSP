@@ -191,7 +191,10 @@ findMinNode(nodo)
       if (!nodo) {
         return
       }
-      let tablaR = document.getElementById('tablalab');
+      
+      
+      
+        let tablaR = document.getElementById('tablalab');
         this.INORDEN(nodo.izquierda)
 
         var newRow = tablaR.insertRow(-1);
@@ -200,10 +203,35 @@ findMinNode(nodo)
         var identificador = newRow.insertCell(0);
         
         identificador.append(nodo.codigo);
+
+      this.INORDEN(nodo.derecha)
+      
         
       
       
-      this.INORDEN(nodo.derecha)
+    }
+    INORDEN2 (nodo = this.raiz) {
+      if (!nodo) {
+        return
+      }
+      
+      
+      
+        let tablap = document.getElementById('tablalab2');
+        this.INORDEN2(nodo.izquierda)
+
+        var newRow = tablap.insertRow(-1);
+
+        
+        var identificador = newRow.insertCell(0);
+        
+        identificador.append(nodo.codigo);
+
+      this.INORDEN2(nodo.derecha)
+      
+        
+      
+      
     }
     
     preOrder (nodo = this.raiz) {
@@ -224,10 +252,38 @@ findMinNode(nodo)
       this.postOrder(nodo.derecha)
       console.log(nodo.apellido)
     }
-  }
 
-$query = `SELECT id_inicio,nombre, apellidoP,apellidoM,codigo
-FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P`;
+  }
+  $query = `SELECT id_inicio,nombre, apellidoP,apellidoM,codigo
+  FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P`;
+  
+  
+      conexion.query($query, function (err, rows) {
+          if (err) {
+              console.log("error en el query");
+              console.log(err);
+              return;
+          }
+          else {
+              var long = rows.length;
+              for (i = 0; i < long; i++) {               
+                  
+                  //var nombri = document.createTextNode(rows[i].nombre);
+                  //var nombre=nombri.nodeValue;
+                  //var apelli = document.createTextNode(rows[i].apellidoP + " " + rows[i].apellidoM);
+                  //var apellido=apelli.nodeValue;
+                  var codig= document.createTextNode(rows[i].codigo);
+                  var codigo=codig.nodeValue;
+                  anadir(codigo);
+                  
+              }
+              
+              ordenar();
+          }
+      });
+
+$query = `SELECT codigoExt
+FROM pacientesExternos`;
 
 
     conexion.query($query, function (err, rows) {
@@ -240,40 +296,43 @@ FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio
             var long = rows.length;
             for (i = 0; i < long; i++) {               
                 
-                var nombri = document.createTextNode(rows[i].nombre);
-                var nombre=nombri.nodeValue;
-                var apelli = document.createTextNode(rows[i].apellidoP + " " + rows[i].apellidoM);
-                var apellido=apelli.nodeValue;
-                var codig= document.createTextNode(rows[i].codigo);
-                var codigo=codig.nodeValue;
-                anadir(codigo);
-                /*var newRow = tablaR.insertRow(-1);
-                var celdaNombre = newRow.insertCell(0);
-                var celdaApellido = newRow.insertCell(1);
-                var identificador = newRow.insertCell(2);
-                var celdaBoton = newRow.insertCell(3);
-                const button = document.createElement('button'); 
-
-                button.type = 'button'; 
-                button.innerText = 'Enviar'; 
                 
-                celdaNombre.appendChild(textoNombre);
-                celdaApellido.appendChild(textoApellido);
-                identificador.appendChild(textoidentificador);
-                celdaBoton.appendChild(button); */
+                var codig= document.createTextNode(rows[i].codigoExt);
+                var codigo=codig.nodeValue;
+                //let tablaP = document.getElementById('tablalab2');
+                
+
+                //var newRow = tablaP.insertRow(-1);
+
+                
+                //var identificador = newRow.insertCell(0);
+                anadir2(codigo);
+                //identificador.append(codigo);
+              
+               
             }
-            ordenar();
+            
+            ordenar2()
         }
     });
 
 var t = new Arbol()
+var u= new Arbol()
 
-  function anadir (apellido,nombre,codigo) {
-    t.anadir(apellido,nombre,codigo);
+  function anadir (codigo) {
+    t.anadir(codigo);
   }
 
   function ordenar () {  
+    
     t.INORDEN();
+}
+function anadir2 (codigo) {
+  u.anadir(codigo);
+}
+
+function ordenar2 () {  
+  u.INORDEN2();
 }
 
 var id;
@@ -415,6 +474,8 @@ function agregar(){
       document.getElementById('estado').innerHTML="No espera ningun resultado";
   }
   if(pacientesistema==2){
+    var codigo=document.getElementById('codigopaciente').innerHTML;
+    u.remove(codigo);
     eliminarPcExt();
     alert("archivo enviado paciente externo")
     let $datos= document.getElementsByClassName('infoPa');
@@ -444,10 +505,16 @@ function agregar(){
   const $elemento = document.querySelector("#tablalab");
   $elemento.innerHTML = "";
 
-  t.INORDEN();
+  const $elemento2 = document.querySelector("#tablalab2");
+  $elemento2.innerHTML = "";
 
+  t.INORDEN();
+  u.INORDEN2();
   if($elemento.innerHTML===""){
     document.getElementById('haypacientes').innerHTML="No hay pacientes en espera de resultados";
+  }
+  if($elemento2.innerHTML===""){
+    document.getElementById('haypaciente2s').innerHTML="No hay pacientes en espera de resultados";
   }
 
 }
@@ -490,6 +557,7 @@ function guardarPc(){
 
   var codigo= document.getElementById('codigopacienteexterno').value;
   var box = document.getElementById('estudiopacienteexterno');
+  u.anadir(codigo);
   var estudio = box.options[box.selectedIndex].text;
     if(nombre && codigo && estudio!=""){
 
@@ -512,6 +580,9 @@ function guardarPc(){
             if(bloque=="block"){
             document.getElementById('añadirPc').style.display="none";
             }
+            const $elemento2 = document.querySelector("#tablalab2");
+            $elemento2.innerHTML = "";
+            u.INORDEN2();
         }
     });
     
