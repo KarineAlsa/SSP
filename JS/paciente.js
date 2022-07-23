@@ -4,6 +4,22 @@ var textoId = listaUsuario[0].nombre+ " " + listaUsuario[0].apellidop+ " " + lis
 document.getElementById('Nombre').innerHTML=textoId;
 //query del apartado de datos personales
 var id=listaUsuario[0].id;
+if(id=="PC_2911"){
+    const image = document.createElement('img')
+    image.src  = '../IMG/Karine.jpeg'
+    document.querySelector('.perfil').appendChild(image)
+}
+if(id=="PC_0407"){
+    const image = document.createElement('img')
+    image.src  = '../IMG/Anel.jpeg'
+    document.querySelector('.perfil').appendChild(image)
+}
+if(id=="PC_2008"){
+    const image = document.createElement('img')
+    image.src  = '../IMG/Aylin.jpeg'
+    document.querySelector('.perfil').appendChild(image)
+}
+
 console.log(listaUsuario[0].id);
 $query = 'Select *from pacientes;';
 $query = `Select edad, peso, sexo, estatura,tipoSangre from pacientes where id_P='${id}'`;

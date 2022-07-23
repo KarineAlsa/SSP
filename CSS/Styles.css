@@ -550,6 +550,7 @@ select{
   color: black;
   font-size: 18px;
   border: 0px;
+  transform: translate(-38%,0%);
 }
 .btnGuardarDatos:hover{
   background-color: whitesmoke;

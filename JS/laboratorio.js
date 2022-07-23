@@ -1,6 +1,5 @@
 class Nodo {
-    constructor (codigo) {
-      
+    constructor (codigo) {   
       this.codigo=codigo
       this.derecha = null
       this.izquierda = null
@@ -162,10 +161,7 @@ removeNode(nodo, codigo)
             nodo = nodo.izquierda;
             return nodo;
         }
-  
-        // Deleting node with two children
-        // minumum node of the rigt subtree
-        // is stored in aux
+
         var aux = this.findMinNode(nodo.derecha);
         nodo.codigo = aux.codigo;
   
@@ -176,8 +172,6 @@ removeNode(nodo, codigo)
 }
 findMinNode(nodo)
 {
-    // if left of a node is null
-    // then it must be minimum node
     if(nodo.izquierda === null)
         return nodo;
     else
@@ -205,10 +199,7 @@ findMinNode(nodo)
         identificador.append(nodo.codigo);
 
       this.INORDEN(nodo.derecha)
-      
-        
-      
-      
+
     }
     INORDEN2 (nodo = this.raiz) {
       if (!nodo) {
@@ -566,3 +557,4 @@ function guardarPc(){
     }
     
 }
+
