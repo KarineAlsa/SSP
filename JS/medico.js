@@ -102,6 +102,9 @@ function cargarDatos() {
     
 } 
 function aparecerActualizar(){
+    document.getElementById('checkedad').checked = false;
+    document.getElementById('checkpeso').checked = false;
+    document.getElementById('checkestatura').checked = false;
     var bloque=document.getElementById('actualizar').style.display;
     if(bloque=="block"){
         let $datosactualizar=document.getElementsByClassName('ActDatos');
@@ -134,7 +137,8 @@ function actualizarDatos(){
     var peso=document.getElementById('pesoActualizar').value;
     var estatura=document.getElementById('estaturaActualizar').value;
     if(edad && peso && estatura!=""){
-        $query = `UPDATE pacientes SET edad='${edad}',peso='${peso}',estatura ='${estatura}'
+        if(edad>0 && edad<120 && peso>1 && peso<700 && estatura>30 &&estatura<250){
+            $query = `UPDATE pacientes SET edad='${edad}',peso='${peso}',estatura ='${estatura}'
         WHERE id_P='${idpaciente}'`;
         conexion.query($query, function (err) {
             if (err) {
@@ -157,6 +161,10 @@ function actualizarDatos(){
                 }
             }
         });
+        }else{
+            alert("Uno de los campos no es válido");
+        }
+        
     }
     else{
         alert("Uno de los campos está vacío. Intente de nuevo");

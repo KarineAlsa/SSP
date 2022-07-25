@@ -506,7 +506,23 @@ a {
   background-color: #f0d7c5;
   color: #000;
 }
+.btnSalir2 {
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 20px;
+  height: 35px;
+  width: 80px;
+  background-color: #ffff;
+  color: #000;
+  border: 0px;
+  margin-bottom: 20px;
+  transform: translate(-30%,0%);
+}
 
+.btnSalir2:hover {
+  background-color: #f0d7c5;
+  color: #000;
+}
 select{
   font-size: 18px;
   
