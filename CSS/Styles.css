@@ -43,7 +43,7 @@
 }
 
 .index {
-  background-image: url(../IMG/edificio.jpeg);
+  background-image: url(../IMG/build.jpeg);
   background-size: cover;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -520,7 +520,7 @@ a {
   transform: translate(-30%,0%);
 }
 
-.btnLeave2:hover {
+.btnLeaveDoctor:hover {
   background-color: #f0d7c5;
   color: #000;
 }

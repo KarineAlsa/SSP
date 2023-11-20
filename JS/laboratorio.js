@@ -1,6 +1,6 @@
-class Nodo {
-    constructor (codigo) {   
-      this.codigo=codigo
+class node {
+    constructor (code) {   
+      this.code=code
       this.derecha = null
       this.izquierda = null
     }
@@ -16,10 +16,10 @@ class Nodo {
       return this.raiz === null
     }
   
-    anadir (codigo) {
+    add (code) {
       
       if (this.Vacio()) {
-        this.raiz = new Nodo(codigo)
+        this.raiz = new node(code)
         return
       }
     
@@ -27,19 +27,19 @@ class Nodo {
         
       while (aux) {
         
-        if (codigo < aux.codigo) {
+        if (code < aux.code) {
           if (aux.izquierda) {
             aux = aux.izquierda
             
           } else {
-            aux.izquierda = new Nodo(codigo)
+            aux.izquierda = new node(code)
             return
           }
         } else { 
           if (aux.derecha) {
             aux = aux.derecha
           } else {
-            aux.derecha = new Nodo(codigo)
+            aux.derecha = new node(code)
             return
           }
         }
@@ -47,25 +47,25 @@ class Nodo {
     }
   
      
-    buscar (apellido) {
+    buscar (lastName) {
       if (this.Vacio()) {
         return null
       }
   
       var aux = this.raiz
-      if (aux.apellido === apellido) {
+      if (aux.apellido === lastName) {
         return aux
       }
   
       while(aux) {
        
-        if (aux.apellido === apellido) {
+        if (aux.apellido === lastName) {
           break
         }
         
-        if (aux.apellido < apellido) {
+        if (aux.apellido < lastName) {
           aux = aux.derecha
-        } else if (aux.apellido> apellido) {
+        } else if (aux.apellido> lastName) {
          
           aux = aux.izquierda
         }
@@ -75,27 +75,27 @@ class Nodo {
     }
 
     
-    buscarcodigo (codigo) {
+    buscarcode (code) {
       if (this.Vacio()) {
         return null
       }
   
       var aux = this.raiz
-      if (aux.codigo === codigo) {
+      if (aux.code === code) {
         return aux
       }
   
       while(aux) {
        
-        if (aux.codigo === codigo) {
+        if (aux.code === code) {
           
           break
 
         }
         
-        if (aux.codigo < codigo) {
+        if (aux.code < code) {
           aux = aux.derecha
-        } else if (aux.codigo> codigo) {
+        } else if (aux.code> code) {
          
           aux = aux.izquierda
         }
@@ -103,152 +103,137 @@ class Nodo {
       
       return aux
     }
-    remove(codigo)
+    remove(code)
 {
-    // root is re-initialized with
-    // root of a modified tree.
-    this.raiz = this.removeNode(this.raiz, codigo);
+    this.raiz = this.removeNode(this.raiz, code);
 }
   
-// Method to remove node with a 
-// given data
-// it recur over the tree to find the
-// data and removes it
-removeNode(nodo, codigo)
+removeNode(node, code)
 {
           
-    // if the root is null then tree is 
-    // empty
-    if(nodo === null)
+   
+    if(node === null)
         return null;
   
-    // if data to be delete is less than 
-    // roots data then move to left subtree
-    else if(codigo < nodo.codigo)
+   
+    else if(code < node.code)
     {
-        nodo.izquierda = this.removeNode(nodo.izquierda, codigo);
-        return nodo;
+        node.izquierda = this.removeNode(node.izquierda, code);
+        return node;
     }
   
-    // if data to be delete is greater than 
-    // roots data then move to right subtree
-    else if(codigo > nodo.codigo)
+    else if(node > node.code)
     {
-        nodo.derecha = this.removeNode(nodo.derecha, codigo);
-        return nodo;
+        node.derecha = this.removeNode(node.derecha, code);
+        return node;
     }
-  
-    // if data is similar to the root's data 
-    // then delete this node
     else
     {
-         // deleting node with no children
-        if(nodo.izquierda === null && nodo.derecha === null)
+
+        if(node.izquierda === null && node.derecha === null)
         {
-            nodo = null;
-            return nodo;
+            node = null;
+            return node;
         }
   
-        // deleting node with one children
-        if(nodo.izquierda === null)
+        
+        if(node.izquierda === null)
         {
-            nodo = nodo.derecha;
-            return nodo;
+            node = node.derecha;
+            return node;
         }
           
-        else if(nodo.derecha === null)
+        else if(node.derecha === null)
         {
-            nodo = nodo.izquierda;
-            return nodo;
+            node = node.izquierda;
+            return node;
         }
 
-        var aux = this.findMinNode(nodo.derecha);
-        nodo.codigo = aux.codigo;
+        var aux = this.findMinNode(node.derecha);
+        node.code = aux.code;
   
-        nodo.derecha = this.removeNode(nodo.derecha, aux.codigo);
-        return nodo;
+        node.derecha = this.removeNode(node.derecha, aux.code);
+        return node;
     }
   
 }
-findMinNode(nodo)
+findMinNode(node)
 {
-    if(nodo.izquierda === null)
-        return nodo;
+    if(node.izquierda === null)
+        return node;
     else
-        return this.findMinNode(nodo.izquierda);
+        return this.findMinNode(node.izquierda);
 }
 
     
   
 
-    INORDEN (nodo = this.raiz) {
-      if (!nodo) {
+    INORDEN (node = this.raiz) {
+      if (!node) {
         return
       }
-      
-      
-      
-        let tablaR = document.getElementById('tablalab');
-        this.INORDEN(nodo.izquierda)
+
+        let tablaR = document.getElementById('secondLaboratoryTable');
+        this.INORDEN(node.izquierda)
 
         var newRow = tablaR.insertRow(-1);
 
         
         var identificador = newRow.insertCell(0);
         
-        identificador.append(nodo.codigo);
+        identificador.append(node.code);
 
-      this.INORDEN(nodo.derecha)
+      this.INORDEN(node.derecha)
 
     }
-    INORDEN2 (nodo = this.raiz) {
-      if (!nodo) {
+    INORDEN2 (node = this.raiz) {
+      if (!node) {
         return
       }
       
       
       
-        let tablap = document.getElementById('tablalab2');
-        this.INORDEN2(nodo.izquierda)
+        let tablap = document.getElementById('forthLaboratoryTable');
+        this.INORDEN2(node.izquierda)
 
         var newRow = tablap.insertRow(-1);
 
         
         var identificador = newRow.insertCell(0);
         
-        identificador.append(nodo.codigo);
+        identificador.append(node.code);
 
-      this.INORDEN2(nodo.derecha)
+      this.INORDEN2(node.derecha)
       
         
       
       
     }
     
-    preOrder (nodo = this.raiz) {
-      if (!nodo) {
+    preOrder (node = this.raiz) {
+      if (!node) {
         return
       }
       
-      console.log(nodo.apellido)
-      this.preOrder(nodo.izquierda)
-      this.preOrder(nodo.derecha)
+      console.log(node.apellido)
+      this.preOrder(node.izquierda)
+      this.preOrder(node.derecha)
     }
     
-    postOrder (nodo = this.raiz) {
-      if (!nodo) {
+    postOrder (node = this.raiz) {
+      if (!node) {
         return
       }
-      this.postOrder(nodo.izquierda)
-      this.postOrder(nodo.derecha)
-      console.log(nodo.apellido)
+      this.postOrder(node.izquierda)
+      this.postOrder(node.derecha)
+      console.log(node.apellido)
     }
 
   }
-$query = `SELECT id_inicio,nombre, apellidoP,apellidoM,codigo
-FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P`;
+$query = `SELECT key_init,name, firstLastName,secondLastName,code
+FROM loginPatient INNER JOIN patients on loginPatient.key_init=patients.id_Patient`;
 
-conexion.query($query, function (err, rows) {
+connect.query($query, function (err, rows) {
   if (err) {
     console.log("error en el query");
     console.log(err);
@@ -258,19 +243,20 @@ conexion.query($query, function (err, rows) {
     var long = rows.length;
     for (i = 0; i < long; i++) {               
       
-        var codig= document.createTextNode(rows[i].codigo);
-        var codigo=codig.nodeValue;
-        anadir(codigo);
+        var codeTemp= document.createTextNode(rows[i].code);
+        var code=codeTemp.nodeValue;
+        
+        add(code);
         
     }
     
-    ordenar();
+    order();
   }
 });
 
-$query = `SELECT codigoExt FROM pacientesExternos`;
+$query = `SELECT codeExternal FROM externalPatients`;
 
-conexion.query($query, function (err, rows) {
+connect.query($query, function (err, rows) {
   if (err) {
     console.log("error en el query");
     console.log(err);
@@ -281,47 +267,47 @@ conexion.query($query, function (err, rows) {
     for (i = 0; i < long; i++) {               
             
             
-      var codig= document.createTextNode(rows[i].codigoExt);
-      var codigo=codig.nodeValue;
-      
-      anadir2(codigo);
+      var codeTemp= document.createTextNode(rows[i].codeExternal);
+      var code=codeTemp.nodeValue;
+      console.log(code)
+      add2(code);
 
     }
         
-    ordenar2()
+    order2()
   }
 });
 
 var t = new Arbol()
 var u= new Arbol()
 
-function anadir (codigo) {
-  t.anadir(codigo);
+function add (code) {
+  t.add(code);
 }
 
-function ordenar () {  
+function order () {  
   t.INORDEN();
 }
-function anadir2 (codigo) {
-  u.anadir(codigo);
+function add2 (code) {
+  u.add(code);
 }
 
-function ordenar2 () {  
+function order2 () {  
   u.INORDEN2();
 }
 
 var id;
-var pacientesistema;
-function buscar(){
-  var codigo=document.getElementById('buscarP').value;
-  let $datosactualizar=document.getElementsByClassName('buscarP');
-    for (var i = 0; i < $datosactualizar.length; i++) {
-      console.log($datosactualizar[i].id);
-      $datosactualizar[i].value = "";//second console output
+var systemPatients;
+function search(){
+  var code=document.getElementById('searchPatient').value;
+  let $updateInfo=document.getElementsByClassName('searchPatient');
+    for (var i = 0; i < $updateInfo.length; i++) {
+      console.log($updateInfo[i].id);
+      $updateInfo[i].value = "";//second console output
     }
-  $query = `SELECT id_inicio,nombre, apellidoP,apellidoM,codigo
-  FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P WHERE codigo='${codigo}'`;
-  conexion.query($query, function (err, rows){
+  $query = `SELECT key_init,name, firstLastName,secondLastName,code
+  FROM loginPatient INNER JOIN patients on loginPatient.key_init=patients.id_Patient WHERE code='${code}'`;
+  connect.query($query, function (err, rows){
         
     if (err){
       console.log ("error en el query");
@@ -333,18 +319,18 @@ function buscar(){
       console.log("ejecutado correctamente", rows);
       var long = rows.length;
       if(long>0){
-        pacientesistema=1;
+        systemPatients=1;
         id=rows[0].id_inicio;
-        var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
-        var codigo1 = rows[0].codigo;
+        var name = rows[0].name + " " + rows[0].firstLastName +" "+ rows[0].secondLastName;
+        var code1 = rows[0].code;
 
-        document.getElementById('nombrepaciente').innerHTML=nombre;
-        document.getElementById('codigopaciente').innerHTML=codigo1;
-        var encontrado=t.buscarcodigo(codigo1)   
+        document.getElementById('namePatient').innerHTML=name;
+        document.getElementById('codePatient').innerHTML=code1;
+        var encontrado=t.buscarcode(code1)   
         if(encontrado===null){
           
-          document.getElementById('estado').innerHTML="No espera ningun resultado";
-          const $button = document.querySelector("#agregar");
+          document.getElementById('statusPatient').innerHTML="No espera ningun resultado";
+          const $button = document.querySelector("#add");
           $button.style.display="none";
           const $box=document.querySelector('#box');
           $box.style.display="none";
@@ -352,8 +338,8 @@ function buscar(){
         }
         else{
           
-          document.getElementById('estado').innerHTML="En espera";
-          const $button = document.querySelector("#agregar");
+          document.getElementById('status').innerHTML="En espera";
+          const $button = document.querySelector("#add");
           $button.style.display="block";
           const $box=document.querySelector('#box');
           $box.style.display="block";
@@ -362,10 +348,10 @@ function buscar(){
       }
 
       if(long==0) {
-        console.log(codigo);
-        $query = `SELECT codigoExt, nombre, apellidoP, apellidoM, tipoEstudio
-        FROM pacientesExternos WHERE codigoExt='${codigo}'`;
-        conexion.query($query, function (err, rows){
+        console.log(code);
+        $query = `SELECT codeExternal, name, firstLastName, secondLastName, typeStudy
+        FROM externalPatients WHERE codeExternal='${code}'`;
+        connect.query($query, function (err, rows){
       
           if (err){
             console.log ("error en el query");
@@ -376,16 +362,16 @@ function buscar(){
             console.log("ejecutado correctamenteexterno", rows);
             long = rows.length;
             if(long>0){
-              pacientesistema=2;
-              id=rows[0].codigoExt;
-              var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
-              var estudio = rows[0].tipoEstudio;
+              systemPatients=2;
+              id=rows[0].codeExternal;
+              var name = rows[0].name + " " + rows[0].firstLastName +" "+ rows[0].secondLastName;
+              var typeStudy = rows[0].typeStudy;
             
               //idpaciente=id;
-              document.getElementById('nombrepaciente').innerHTML=nombre;
-              document.getElementById('codigopaciente').innerHTML=id;
-              document.getElementById('estado').innerHTML=estudio;
-              const $button = document.querySelector("#agregar");
+              document.getElementById('namePatient').innerHTML=name;
+              document.getElementById('codePatient').innerHTML=id;
+              document.getElementById('statusPatient').innerHTML=typeStudy;
+              const $button = document.querySelector("#add");
               $button.style.display="block";
               const $box=document.querySelector('#box');
               $box.style.display="block";
@@ -393,7 +379,7 @@ function buscar(){
             }
             else{
               alert("Paciente no encontrado");  
-              pacientesistema=3;                
+              systemPatients=3;                
             }
           }
         });
@@ -402,12 +388,12 @@ function buscar(){
   });
 }
 
-function anadirEstudio(){
+function addStudy(){
   var box = document.getElementById("box2");
-  var seleccionado = box.options[box.selectedIndex].text;
+  var $selected = box.options[box.selectedIndex].text;
 
-  $query = `INSERT INTO laboratorio (id_P,descrpcion) VALUES ('${id}','${seleccionado}')`;
-    conexion.query($query, function (err) {
+  $query = `INSERT INTO laboratory (id_Patient,description) VALUES ('${id}','${$selected}')`;
+    connect.query($query, function (err) {
         if (err) {
             console.log("error en el query");
             console.log(err);
@@ -418,10 +404,10 @@ function anadirEstudio(){
         }
     });
 }
-function eliminarPcExt(){
+function deleteExternalPatient(){
 
-  $query = `DELETE FROM pacientesExternos WHERE codigoExt='${id}'`;
-  conexion.query($query, function (err) {
+  $query = `DELETE FROM externalPatients WHERE codeExternal='${id}'`;
+  connect.query($query, function (err) {
     if (err) {
         console.log("error en el query");
         console.log(err);
@@ -430,37 +416,37 @@ function eliminarPcExt(){
   });
 }
 
-function agregar(){
+function add(){
   
-  if(pacientesistema==1){
-      anadirEstudio();
-      var codigo=document.getElementById('codigopaciente').innerHTML;
-      console.log(codigo);
-      t.remove(codigo);
-      document.getElementById('estado').innerHTML="No espera ningun resultado";
+  if(systemPatients==1){
+      addStudy();
+      var code=document.getElementById('codePatient').innerHTML;
+      console.log(code);
+      t.remove(code);
+      document.getElementById('status').innerHTML="No espera ningun resultado";
   }
-  if(pacientesistema==2){
-    var codigo=document.getElementById('codigopaciente').innerHTML;
-    u.remove(codigo);
-    eliminarPcExt();
+  if(systemPatients==2){
+    var code=document.getElementById('codePatient').innerHTML;
+    u.remove(code);
+    deleteExternalPatient();
     alert("archivo enviado paciente externo")
-    let $datos= document.getElementsByClassName('infoPa');
-    console.log($datos);
+    let info= document.getElementsByClassName('infoPat');
+    console.log(info);
     
-        for (var i = 0; i < $datos.length; i++) {
+        for (var i = 0; i < info.length; i++) {
             
-            $datos[i].innerHTML = "";
+            info[i].innerHTML = "";
         }
     
   }
-  if(pacientesistema==3){
+  if(systemPatients==3){
     alert("Paciente no encontrado en lista de espera");
   }
  
 
   
 
-  const $button = document.querySelector("#agregar");
+  const $button = document.querySelector("#add");
   $button.style.display="none";
 
   const $box=document.querySelector('#box');
@@ -468,68 +454,69 @@ function agregar(){
 
   
 
-  const $elemento = document.querySelector("#tablalab");
-  $elemento.innerHTML = "";
+  const $element = document.querySelector("#secondLaboratoryTable");
+  $element.innerHTML = "";
 
-  const $elemento2 = document.querySelector("#tablalab2");
-  $elemento2.innerHTML = "";
+  const $element2 = document.querySelector("#forthLaboratoryTable");
+  $element2.innerHTML = "";
 
   t.INORDEN();
   u.INORDEN2();
-  if($elemento.innerHTML===""){
-    document.getElementById('haypacientes').innerHTML="No hay pacientes en espera de resultados";
+  if($element.innerHTML===""){
+    document.getElementById('therePatient').innerHTML="No hay pacientes en espera de resultados";
   }
-  if($elemento2.innerHTML===""){
-    document.getElementById('haypaciente2').innerHTML="No hay pacientes en espera de resultados";
+  if($element2.innerHTML===""){
+    document.getElementById('therePatient2').innerHTML="No hay pacientes en espera de resultados";
   }
 
 }
 
-function añadirPc(){
-  var bloque=document.getElementById('añadirPc').style.display;
-    if(bloque=="block"){
-      let $datosactualizar=document.getElementsByClassName('AñadirDatos');
-      for (var i = 0; i < $datosactualizar.length; i++) {
+function addPatient(){
+  var block=document.getElementById('addPatient').style.display;
+    if(block=="block"){
+      let $updateInfo=document.getElementsByClassName('addInfo');
+      for (var i = 0; i < $updateInfo.length; i++) {
           
-          $datosactualizar[i].value = "";
+          $updateInfo[i].value = "";
       }
-      console.log($datosactualizar);
+      console.log($updateInfo);
       
-      document.getElementById('añadirPc').style.display="none";
+      document.getElementById('addPatient').style.display="none";
         
     }
     else{
-        document.getElementById('añadirPc').style.display="block";
+        document.getElementById('addPatient').style.display="block";
     }
 }
 
-function guardarPc(){
-  var nombre = document.getElementById('nombrepacienteexterno').value;
-  var nuevo =nombre.split([" "]);
+function savePatient(){
+  var name = document.getElementById('nameExternalPatient').value;
+  var newName =name.split([" "]);
   
-  console.log(nuevo);
-  if(nuevo.length==3){
-    var nombrenuevo=nuevo[0];
-    var apellidoP=nuevo[1];
-    var apellidoM=nuevo[2];
-    console.log("tamaño 3 " + nombrenuevo + apellidoP + apellidoM);
+  console.log(newName);
+  if(newName.length==3){
+    var nameNew=newName[0];
+    var firstLastName=newName[1];
+    var secondLastName=newName[2];
+    console.log("tamaño 3 " + nameNew + firstLastName + secondLastName);
   }
-  if(nuevo.length==4){
-    var nombrenuevo=nuevo[0] + " " + nuevo[1];
-    var apellidoP=nuevo[2];
-    var apellidoM=nuevo[3];
-    console.log("tamaño 4 " + nombrenuevo + apellidoP + apellidoM);
+  if(newName.length==4){
+    var nameNew=newName[0] + " " + newName[1];
+    var firstLastName=newName[2];
+    var secondLastName=newName[3];
+    console.log("tamaño 4 " + nameNew + firstLastName + secondLastName);
   }
 
-  var codigo= document.getElementById('codigopacienteexterno').value;
-  var box = document.getElementById('estudiopacienteexterno');
-  u.anadir(codigo);
-  var estudio = box.options[box.selectedIndex].text;
-    if(nombre && codigo && estudio!=""){
+  var code= document.getElementById('codeExternalPatient').value;
+  var box = document.getElementById('studyExternalPatient');
+  u.add(code);
+  console.log(code,nameNew);
+  var study = box.options[box.selectedIndex].text;
+    if(name && code && study!=""){
 
     
-      $query = `INSERT INTO pacientesExternos (nombre,apellidoP,apellidoM,codigoExt,tipoEstudio) VALUES ('${nombrenuevo}','${apellidoP}','${apellidoM}','${codigo}','${estudio}')`;
-      conexion.query($query, function (err) {
+      $query = `INSERT INTO externalPatients (name,firstLastName,secondLastName,codeExternal,typeStudy) VALUES ('${nameNew}','${firstLastName}','${secondLastName}','${code}','${study}')`;
+      connect.query($query, function (err) {
         if (err) {
             console.log("error en el query");
             console.log(err);
@@ -537,17 +524,17 @@ function guardarPc(){
         }
         else { 
             alert("Guardado en lista de espera");
-            let $pacientenuevo=document.getElementsByClassName('AñadirDatos');
-                for (var i = 0; i < $pacientenuevo.length; i++) {
+            let $newPatient=document.getElementsByClassName('addInfo');
+                for (var i = 0; i < $newPatient.length; i++) {
                     
-                    $pacientenuevo[i].value = "";//second console output
+                    $newPatient[i].value = "";//second console output
                 }
-            var bloque=document.getElementById('añadirPc').style.display;
-            if(bloque=="block"){
-            document.getElementById('añadirPc').style.display="none";
+            var block=document.getElementById('addPatient').style.display;
+            if(block=="block"){
+            document.getElementById('addPatient').style.display="none";
             }
-            const $elemento2 = document.querySelector("#tablalab2");
-            $elemento2.innerHTML = "";
+            const $element2 = document.querySelector("#forthLaboratoryTable");
+            $element2.innerHTML = "";
             u.INORDEN2();
         }
       });

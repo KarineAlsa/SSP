@@ -5,15 +5,15 @@
     <script src="../JS/validar.js"></script>
 </head>
 
-<body class="vistalaboratorio">
+<body class="laboratoryView">
     <header>
         <br>
         <div>
-            <img src="../IMG/lab2.png" class="imgLb" alt="Logo" >
+            <img src="../IMG/lab2.png" class="imgLaboratory" alt="Logo" >
         </div>
         <div class="container-case">
-            <center><h1 class="tituloProyecto">Centro de analisis clinicos SSP</h1></center>
-            <center><br><a class="infoUbi">Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
+            <center><h1 class="projectTitle">Centro de analisis clinicos SSP</h1></center>
+            <center><br><a class="infoLocation">Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
             <br><hr>
             <div class="overlay"></div>
             <div class="hamburger-menu">
@@ -22,16 +22,16 @@
         </div>
     </header>
 
-    <button type="button" class="btnAñadirPC" onclick="añadirPc()"> Añadir paciente</button>
+    <button type="button" class="btnAddPatient" onclick="addPatient()"> Añadir paciente</button>
     
-    <div id ="añadirPc"class="añadirPc" style="display:none">
+    <div id ="addPatient"class="addPatient" style="display:none">
             <br>
-                <a class="infoPcNv"> Nombre </label> </a><input id="nombrepacienteexterno"class="AñadirDatos">
+                <a class="infoNewPatient"> Nombre </label> </a><input id="nameExternalPatient"class="addInfo">
                 <br><br>
-                <a class="infoPcNv"> Codigo </label></a><input id="codigopacienteexterno"class="AñadirDatos">
+                <a class="infoNewPatient"> Codigo </label></a><input id="codeExternalPatient"class="addInfo">
                 <br><br>
-                <a class="infoPcNv"> Estudio  </label></a>
-                <select id="estudiopacienteexterno"name="laboratoriosexterno" onfocus='this.size=1;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                <a class="infoNewPatient"> Estudio  </label></a>
+                <select id="studyExternalPatient" name="externalLaboratories" onfocus='this.size=1;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
             
                     <option>Prueba COVID</option>
                     <option>Prueba de embarazo</option>
@@ -42,64 +42,64 @@
                     </select>
               <!--  <a class="infoPcNv"> Estudio  </label></a><input class="AñadirDatos">-->
                 <br><br>
-        <button type="button" class="btnGuardarPc" onclick="guardarPc()">Guardar</button>
+        <button type="button" class="btnSavePatient" onclick="savePatient()">Guardar</button>
         
     </div>
-    <div class="tabEspera">
+    <div class="waitingTable">
         
-        <div class="tabla">
-            <label id="haypacientes"></label>
-                <table id= "tablalab1" class="table">
+        <div class="table">
+            <label id="therePatient"></label>
+                <table id= "laboratoryTable" class="table">
                     <tr class="tr2">
                         <th style="width:50px"class="th1">Codigos</th>    
                     </tr>
                 </table>
-                <table id= "tablalab" class="table1">
+                <table id= "secondLaboratoryTable" class="table1">
                  <!--CODIGO DE JAVA-->
                 </table>
             
         </div>
     
-        <div class="tabla2">
+        <div>
             
-                <label id="haypacientes2"></label>
-                    <table id= "tablalab" class="table">
+                <label id="therePatient2"></label>
+                    <table id= "secondLaboratoryTable" class="table">
                         <tr class="tr2">
                             <th style="width:50px"class="th1">Codigos</th>    
                         </tr>
                     </table>
-                    <table id= "tablalab2" class="table1">
+                    <table id= "forthLaboratoryTable" class="table1">
                      <!--CODIGO DE JAVA-->
                     </table>
                 
         </div>
     </div>
     
-    <div class="busqueda2">
-        <section class="buscar1">
-            <input id="buscarP" class="buscarP">
+    <div class="searcher">
+        <section class="sectionSearch">
+            <input id="searchPatient" class="searchPatient">
         </section>
-        <div class="buscar2">
-            <button type="button" class="btnB" onclick="buscar()"><img src="../IMG/lupa.png" class="lupa"></button>
+        <div class="btnSectionSearch">
+            <button type="button" class="btnB" onclick="search()"><img src="../IMG/zoom.png" class="zoom"></button>
         </div>    
     </div>
 
-    <div class="ExpedientePaciente2">
+    <div class="patientExpedient">
         <br><center><h1>Información del paciente</h1></center><br>
-        <div class="lista2">
+        <div class="infoPatientList">
             <ul>
-                <li class="infoPaciente"> Nombre: <label class="infoPa"id="nombrepaciente"></label></li>
+                <li class="infoAboutPatient"> Nombre: <label class="infoPat" id="namePatient"></label></li>
                 <br>
-                <li class="infoPaciente"> Codigo: <label class="infoPa"id="codigopaciente"></label> </li>
+                <li class="infoAboutPatient"> Codigo: <label class="infoPat" id="codePatient"></label> </li>
                 <br>
-                <li class="infoPaciente"> Estado: <label class="infoPa"id="estado"></label></li>
+                <li class="infoAboutPatient"> Estado: <label class="infoPat" id="statusPatient"></label></li>
                 <br>
             </ul>
         </div> 
     </div>
 
-    <div id="box" style="display:none" class="listaLB" >
-        <select id="box2"name="laboratorios" onfocus='this.size=1;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+    <div id="box" style="display:none" class="labList" >
+        <select id="box2"name="laboratories" onfocus='this.size=1;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
             
             <option>Prueba COVID</option>
             <option>Prueba de embarazo</option>
@@ -110,9 +110,9 @@
         </select>
     </div>
 
-    <center><button class="btnAgregarLb" style="display:none"id="agregar"onclick="agregar()"><img src="../IMG/enviar.png" class="enviar"></button></center>
+    <center><button class="btnAddLaboratory" style="display:none"id="add"onclick="add()"><img src="../IMG/send.png" class="send"></button></center>
     <br>
-    <center><button class="btnSalir2" onclick="salir()">Salir</button> </center> 
+    <center><button class="btnLeaveDoctor" onclick="exit()">Salir</button> </center> 
 
     <script src="../JS/laboratorio.js"></script>
 </body>
