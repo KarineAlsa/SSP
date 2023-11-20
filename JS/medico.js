@@ -1,14 +1,17 @@
-listaUsuario=JSON.parse(localStorage.getItem("lista"));
-var idpaciente;
-var textoId = listaUsuario[0].nombre+ " " + listaUsuario[0].apellidop+ " " + listaUsuario[0].apellidom;
-document.getElementById('Nombre').innerHTML=textoId;
-console.log(listaUsuario[0]);
-var id=listaUsuario[0].id;
 
-$query = 'Select *from medicos;';
-$query = `Select cedulaP, especialidad from medicos where id_M='${id}'`;
-conexion.query($query, function (err, rows){
-    
+
+usersList=JSON.parse(localStorage.getItem("list"));
+var patient_id;
+var username = usersList[0].name+ " " + usersList[0].firstLastName+ " " + usersList[0].secondLastName;
+document.getElementById('name').innerHTML=username;
+console.log(usersList[0]);
+var id=usersList[0].id;
+////////////////////////////////////////////////////////////////
+$query = 'Select *from doctors;';
+$query = `Select license, specialty from doctors where id_Doctor='${id}'`;
+connect.query($query, function (err, rows){
+////////////////////////////////////////////////////////////////   
+
 if (err){
     console.log ("error en el query");
     console.log (err);
@@ -20,20 +23,20 @@ else{
     var long = rows.length;
     if(long>0){
        
-        var cedulaP = rows[0].cedulaP;
-        var especialidad = rows[0].especialidad;
-        document.getElementById('cedulap').innerHTML=cedulaP;
-        document.getElementById('especialidad').innerHTML=especialidad;   
+        var license = rows[0].license;
+        var specialty = rows[0].specialty;
+        document.getElementById('license').innerHTML=license;
+        document.getElementById('specialty').innerHTML=specialty;   
     } 
 }
 })
 
 function buscar(){
-    var busqueda=document.getElementById('buscarP').value;
+    var code=document.getElementById('searchPatient').value;
     
-    $query = `SELECT id_inicio,nombre, apellidoP,apellidoM,edad,peso,sexo,estatura,tipoSangre
-    FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P WHERE codigo='${busqueda}'`;
-    conexion.query($query, function (err, rows){
+    $query = `SELECT key_init,name, firstLastName,secondLastName,age,weight,sex,height,blood
+    FROM loginPatient INNER JOIN patients on loginPatient.key_init=patients.id_Patient WHERE code='${code}'`;
+    connect.query($query, function (err, rows){
         
     if (err){
         console.log ("error en el query");
@@ -45,46 +48,46 @@ function buscar(){
         console.log("ejecutado correctamente", rows);
         var long = rows.length;
         if(long>0){
-            var id=rows[0].id_inicio;
-            var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
-            var edad = rows[0].edad;
-            var peso = rows[0].peso;
-            var sexo = rows[0].sexo;
-            var estatura = rows[0].estatura;
-            var sangre = rows[0].tipoSangre;
-            idpaciente=id;
+            var id=rows[0].key_init;
+            var name = rows[0].name + " " + rows[0].firstLastName +" "+ rows[0].secondLastName;
+            var age = rows[0].age;
+            var weight = rows[0].weight;
+            var sex = rows[0].sex;
+            var height = rows[0].height;
+            var blood = rows[0].blood;
+            patient_id=id;
             
-            document.getElementById('nombrepaciente').innerHTML=nombre;
-            document.getElementById('edadpaciente').innerHTML=edad;
-            document.getElementById('pesopaciente').innerHTML=peso;
-            document.getElementById('sexopaciente').innerHTML=sexo;
-            document.getElementById('estaturapaciente').innerHTML=estatura;
-            document.getElementById('sangrepaciente').innerHTML=sangre;     
-            document.getElementById('botonact').style.display="block";
+            document.getElementById('namePatient').innerHTML=name
+            document.getElementById('agePatient').innerHTML=age;
+            document.getElementById('weightPatient').innerHTML=weight;
+            document.getElementById('sexPatient').innerHTML=sex;
+            document.getElementById('heightPatient').innerHTML=height;
+            document.getElementById('bloodPatient').innerHTML=blood;     
+            document.getElementById('btnUpdate').style.display="block";
         }
 
         else {
-            document.getElementById('botonact').style.display="none";
+            document.getElementById('btnUpdate').style.display="none";
             alert("Paciente no encontrado");
-            document.getElementById('nombrepaciente').innerHTML="";
-            document.getElementById('edadpaciente').innerHTML="";
-            document.getElementById('pesopaciente').innerHTML="";
-            document.getElementById('sexopaciente').innerHTML="";
-            document.getElementById('estaturapaciente').innerHTML="";
-            document.getElementById('sangrepaciente').innerHTML="";  
+            document.getElementById('namePatient').innerHTML="";
+            document.getElementById('agePatient').innerHTML="";
+            document.getElementById('weightPatient').innerHTML="";
+            document.getElementById('sexPatient').innerHTML="";
+            document.getElementById('heightPatient').innerHTML="";
+            document.getElementById('bloodPatient').innerHTML="";  
         }
     }
     });
 }
 
-function cargarDatos() {
-    var diagnostico = document.getElementById('diagnostico').value;
-    var tratamiento= document.getElementById('tratamiento').value;
-    if(diagnostico && tratamiento!=""){
+function chargePrescription() {
+    var diagnostic = document.getElementById('diagnostic').value;
+    var treatment= document.getElementById('treatment').value;
+    if(diagnostic && treatment!=""){
 
     
-    $query = `INSERT INTO expediente (id_P,diagnostico,tratamiento) VALUES ('${idpaciente}','${diagnostico}','${tratamiento}')`;
-    conexion.query($query, function (err) {
+    $query = `INSERT INTO expedients (id_Patient,diagnostic,treatment) VALUES ('${patient_id}','${diagnostic}','${treatment}')`;
+    connect.query($query, function (err) {
         if (err) {
             console.log("error en el query");
             console.log(err);
@@ -101,46 +104,43 @@ function cargarDatos() {
     
     
 } 
-function aparecerActualizar(){
-    document.getElementById('checkedad').checked = false;
-    document.getElementById('checkpeso').checked = false;
-    document.getElementById('checkestatura').checked = false;
-    var bloque=document.getElementById('actualizar').style.display;
-    if(bloque=="block"){
-        let $datosactualizar=document.getElementsByClassName('ActDatos');
-        for (var i = 0; i < $datosactualizar.length; i++) {
-            console.log($datosactualizar[i].id);
-            $datosactualizar[i].value = "";
+function appearUpdate(){
+    document.getElementById('checkAge').checked = false;
+    document.getElementById('checkWeight').checked = false;
+    document.getElementById('checkHeight').checked = false;
+    var update=document.getElementById('update').style.display;
+    if(update=="block"){
+        let $infoUpdate=document.getElementsByClassName('updInfo');
+        for (var i = 0; i < $infoUpdate.length; i++) {
+            console.log($infoUpdate[i].id);
+            $infoUpdate[i].value = "";
         }
-        console.log($datosactualizar);
+        console.log($infoUpdate);
         
-        document.getElementById('actualizar').style.display="none";
+        document.getElementById('update').style.display="none";
         
     }
     else{
-        document.getElementById('actualizar').style.display="block";
-        var edad=document.getElementById('edadpaciente').innerHTML;
-        document.getElementById('edadActualizar').value=edad;
-        var peso=document.getElementById('pesopaciente').innerHTML;
-        document.getElementById('pesoActualizar').value=peso; 
-        var estatura=document.getElementById('estaturapaciente').innerHTML;  
-        document.getElementById('estaturaActualizar').value=estatura;
+        document.getElementById('update').style.display="block";
+        var age=document.getElementById('agePatient').innerHTML;
+        document.getElementById('ageUpdate').value=age;
+        var weight=document.getElementById('weightPatient').innerHTML;
+        document.getElementById('weightUpdate').value=weight; 
+        var height=document.getElementById('heightPatient').innerHTML;  
+        document.getElementById('heightUpdate').value=height;
     }
-    console.log(bloque);
-    
-    
     
 }
 
-function actualizarDatos(){
-    var edad=document.getElementById('edadActualizar').value;
-    var peso=document.getElementById('pesoActualizar').value;
-    var estatura=document.getElementById('estaturaActualizar').value;
-    if(edad && peso && estatura!=""){
-        if(edad>0 && edad<120 && peso>1 && peso<700 && estatura>30 &&estatura<250){
-            $query = `UPDATE pacientes SET edad='${edad}',peso='${peso}',estatura ='${estatura}'
-        WHERE id_P='${idpaciente}'`;
-        conexion.query($query, function (err) {
+function updateInfo(){
+    var age=document.getElementById('ageUpdate').value;
+    var weight=document.getElementById('weightUpdate').value;
+    var height=document.getElementById('heightUpdate').value;
+    if(age && weight && height!=""){
+        if(age>0 && age<120 && weight>1 && weight<700 && height>30 &&height<250){
+            $query = `UPDATE patients SET age='${age}',weight='${weight}',height ='${height}'
+        WHERE id_Patient='${patient_id}'`;
+        connect.query($query, function (err) {
             if (err) {
                 console.log("error en el query");
                 console.log(err);
@@ -149,15 +149,15 @@ function actualizarDatos(){
             else { 
                 alert("Guardado en el expediente del paciente") 
                 
-                actualizarvista();
-                let $datosactualizar=document.getElementsByClassName('ActDatos');
-                for (var i = 0; i < $datosactualizar.length; i++) {
-                    console.log($datosactualizar[i].id);
-                    $datosactualizar[i].value = "";//second console output
+                updateView();
+                let $updateInfo=document.getElementsByClassName('updInfo');
+                for (var i = 0; i < $updateInfo.length; i++) {
+                    console.log($updateInfo[i].id);
+                    $updateInfo[i].value = "";//second console output
                 }
-                var bloque=document.getElementById('actualizar').style.display;
-                if(bloque=="block"){
-                document.getElementById('actualizar').style.display="none";
+                var update=document.getElementById('update').style.display;
+                if(update=="block"){
+                document.getElementById('update').style.display="none";
                 }
             }
         });
@@ -171,10 +171,10 @@ function actualizarDatos(){
     } 
 }
 
-function actualizarvista(){
-    $query = `SELECT id_inicio,nombre, apellidoP,apellidoM,edad,peso,sexo,estatura,tipoSangre
-    FROM inicioSesionPaciente INNER JOIN pacientes on inicioSesionPaciente.id_inicio=pacientes.id_P WHERE id_inicio='${idpaciente}'`;
-    conexion.query($query, function (err, rows){
+function updateView(){
+    $query = `SELECT key_init,name, firstLastName,secondLastName,age,weight,sex,height,blood
+    FROM loginPatient INNER JOIN patients on loginPatient.key_init=patients.id_Patient WHERE key_init='${patient_id}'`;
+    connect.query($query, function (err, rows){
         
     if (err){
         console.log ("error en el query");
@@ -186,65 +186,65 @@ function actualizarvista(){
         console.log("ejecutado correctamente", rows);
         var long = rows.length;
         if(long>0){
-            var id=rows[0].id_inicio;
-            var nombre = rows[0].nombre + " " + rows[0].apellidoP +" "+ rows[0].apellidoM;
-            var edad = rows[0].edad;
-            var peso = rows[0].peso;
-            var sexo = rows[0].sexo;
-            var estatura = rows[0].estatura;
-            var sangre = rows[0].tipoSangre;
-            idpaciente=id;
+            var id=rows[0].key_init;
+            var name = rows[0].name + " " + rows[0].firstLastName +" "+ rows[0].secondLastName;
+            var age = rows[0].age;
+            var weight = rows[0].weight;
+            var sex = rows[0].sex;
+            var height = rows[0].height;
+            var blood = rows[0].blood;
+            patient_id=id;
             
-            document.getElementById('nombrepaciente').innerHTML=nombre;
-            document.getElementById('edadpaciente').innerHTML=edad;
-            document.getElementById('pesopaciente').innerHTML=peso;
-            document.getElementById('sexopaciente').innerHTML=sexo;
-            document.getElementById('estaturapaciente').innerHTML=estatura;
-            document.getElementById('sangrepaciente').innerHTML=sangre;     
+            document.getElementById('namePatient').innerHTML=name;
+            document.getElementById('agePatient').innerHTML=age;
+            document.getElementById('weightPatient').innerHTML=weight;
+            document.getElementById('sexPatient').innerHTML=sex;
+            document.getElementById('heightPatient').innerHTML=height;
+            document.getElementById('bloodPatient').innerHTML=blood;     
             
         }
 }
     });
 }
 
-function comprobar(obj){   
+function checkAge(obj){   
     if (obj.checked){
-        document.getElementById('edadActualizar').readOnly = false;
-        document.getElementById('edadActualizar').value="";
+        document.getElementById('ageUpdate').readOnly = false;
+        document.getElementById('ageUpdate').value="";
     }    
     else{
-        document.getElementById('edadActualizar').readOnly = true;
-        var edad=document.getElementById('edadpaciente').innerHTML;
-        document.getElementById('edadActualizar').value=edad;
+        document.getElementById('ageUpdate').readOnly = true;
+        var age=document.getElementById('agePatient').innerHTML;
+        document.getElementById('ageUpdate').value=age;
     }
  
 }
 
-function comprobar2(obj){   
+function checkWeight(obj){   
     if (obj.checked){
-        document.getElementById('pesoActualizar').readOnly = false;
-        document.getElementById('pesoActualizar').value="";
+        document.getElementById('weightUpdate').readOnly = false;
+        document.getElementById('weightUpdate').value="";
     }
      
     else{
-        document.getElementById('pesoActualizar').readOnly = true;
-        var peso=document.getElementById('pesopaciente').innerHTML;
-        document.getElementById('pesoActualizar').value=peso; 
+        document.getElementById('weightUpdate').readOnly = true;
+        var weight=document.getElementById('weightPatient').innerHTML;
+        document.getElementById('weightUpdate').value=weight; 
     }
       
 }
 
-function comprobar3(obj)
+function checkHeight(obj)
 {   
     if (obj.checked){
-        document.getElementById('estaturaActualizar').readOnly = false;
-        document.getElementById('estaturaActualizar').value="";
+        document.getElementById('heightUpdate').readOnly = false;
+        document.getElementById('heightUpdate').value="";
     }
         
     else{
-        document.getElementById('estaturaActualizar').readOnly = true;
-        var estatura=document.getElementById('estaturapaciente').innerHTML;  
-        document.getElementById('estaturaActualizar').value=estatura;
+        document.getElementById('heightUpdate').readOnly = true;
+        var height=document.getElementById('heightPatient').innerHTML;  
+        document.getElementById('heightUpdate').value=height;
     }
       
 }

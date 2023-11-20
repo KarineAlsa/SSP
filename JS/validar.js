@@ -1,35 +1,33 @@
-const conexion= require('../JS/connection');
+const connect= require('../js/connection');
 
-const iniciarsesion=()=>{
-   
-    
-    
-    var usuario1=document.getElementById("password").value;
-    var check=usuario1.substring(0,2);
+const login=()=>{
+
+    var user=document.getElementById("password").value;
+    var check=user.substring(0,2);
     console.log(check);
         if(check=="PC"){
-            $query = 'Select *from inicioSesionPaciente;';
-            $query = `Select id_inicio,nombre,apellidoP,apellidoM from inicioSesionPaciente where id_inicio='${usuario1}'`;
-            conexion.query($query, function (err, rows){
+            $query = 'Select *from loginPatient;';
+            $query = `Select key_init,name,firstLastName,secondLastName from loginPatient where key_init='${user}'`;
+            connect.query($query, function (err, rows){
                 
             if (err){
                 console.log ("error en el query");
                 console.log (err);
-            return;
+            return;1
             } 
 
             else{  
                 console.log("ejecutado correctamente", rows);
                 var long = rows.length;
                 if(long>0){
-                    var id=rows[0].id_inicio;
-                    var nombre = rows[0].nombre;
-                    var apellidop = rows[0].apellidoP;
-                    var apellidom = rows[0].apellidoM;
-              
-                    var listaUsuarios=[{id:id,nombre:nombre,apellidop:apellidop,apellidom:apellidom}];
-                    localStorage.setItem("lista",JSON.stringify(listaUsuarios));
-                    window.location.href="paciente.html";
+                    var id=rows[0].key_init;
+                    var name = rows[0].name;
+                    var firstLastName = rows[0].firstLastName;
+                    var secondLastName = rows[0].secondLastName;
+            
+                    var usersList=[{id:id,name:name,firstLastName:firstLastName,secondLastName:secondLastName}];
+                    localStorage.setItem("list",JSON.stringify(usersList));
+                    window.location.href="patient.html";
                     
                 }
 
@@ -42,9 +40,9 @@ const iniciarsesion=()=>{
             
         }
         if(check=="MD"){
-            $query = 'Select *from inicioSesionMedico;';
-            $query = `Select id_inicio,nombre,apellidoP,apellidoM from inicioSesionMedico where id_inicio='${usuario1}'`;
-            conexion.query($query, function (err, rows){
+            $query = 'Select *from loginDoctor;';
+            $query = `Select key_init,name,firstLastName,secondLastName from loginDoctor where key_init='${user}'`;
+            connect.query($query, function (err, rows){
                 
             if (err){
                 console.log ("error en el query");
@@ -56,14 +54,14 @@ const iniciarsesion=()=>{
                 console.log("ejecutado correctamente", rows);
                 var long = rows.length;
                 if(long>0){
-                    var id=rows[0].id_inicio;
-                    var nombre = rows[0].nombre;
-                    var apellidop = rows[0].apellidoP;
-                    var apellidom = rows[0].apellidoM;
+                    var id=rows[0].key_init;
+                    var name = rows[0].name;
+                    var firstLastName = rows[0].firstLastName;
+                    var secondLastName = rows[0].secondLastName;
               
-                    var listaUsuarios=[{id:id,nombre:nombre,apellidop:apellidop,apellidom:apellidom}];
-                    localStorage.setItem("lista",JSON.stringify(listaUsuarios));
-                    window.location.href="vistamedico.html";
+                    var usersList=[{id:id,name:name,firstLastName:firstLastName,secondLastName:secondLastName}];
+                    localStorage.setItem("list",JSON.stringify(usersList));
+                    window.location.href="doctor.html";
                     
                 }
 
@@ -75,9 +73,9 @@ const iniciarsesion=()=>{
             
         }
         if(check=="LB"){
-            $query = 'Select *from inicioSesionLaboratorio;';
-            $query = `Select nombre from inicioSesionLaboratorio where id_inicio='${usuario1}'`;
-            conexion.query($query, function (err, rows){
+            $query = 'Select *from loginLaboratory;';
+            $query = `Select name from loginLaboratory where key_init='${user}'`;
+            connect.query($query, function (err, rows){
                 
             if (err){
                 console.log ("error en el query");
@@ -89,7 +87,7 @@ const iniciarsesion=()=>{
                 console.log("ejecutado correctamente", rows);
                 var long = rows.length;
                 if(long>0){
-                    window.location.href="laboratorio.html";
+                    window.location.href="laboratory.html";
                     
                 }
 
@@ -105,6 +103,6 @@ const iniciarsesion=()=>{
     }
 };
 
-    const salir=()=>{
-        window.location.href="inicio.html";
+    const exit=()=>{
+        window.location.href="index.html";
     }

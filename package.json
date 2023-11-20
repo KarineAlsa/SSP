@@ -2,10 +2,10 @@
   "name": "ssp",
   "version": "1.0.0",
   "description": "ProyectoIntegrador",
-  "main": "./JS/index.js",
+  "main": "./js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "electron ./JS/index.js"
+    "dev": "electron ./js/index.js"
   },
   "author": "kaayan",
   "license": "ISC",

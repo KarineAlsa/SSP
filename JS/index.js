@@ -10,7 +10,7 @@ app.on('ready', () => {
         }
     });
     
-    win.loadFile('../HTML/inicio.html');
+    win.loadFile('../src/index.html');
     win.on('closed', () => {
         win= null;
         app.quit();

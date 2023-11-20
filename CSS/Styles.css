@@ -36,13 +36,13 @@
   font-size: 40px;
 }
 
-.vistapaciente {
+.patientView {
   background: #36D1DC;
   background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
   background: linear-gradient(to right, #5B86E5, #36D1DC);
 }
 
-.inicio {
+.index {
   background-image: url(../IMG/edificio.jpeg);
   background-size: cover;
   backdrop-filter: blur(10px);
@@ -72,7 +72,7 @@ img {
 }
 
 /*paciente*/
-.infoP{
+.infoPatient{
   height: auto;
   width: 1410px;
   margin-left: 14px;
@@ -80,7 +80,7 @@ img {
 
 }
 
-.datos {
+.information {
   width: 1109px;
   height: 700px;
   float: right;
@@ -100,7 +100,7 @@ aside {
   border-radius: 9px;
 }
 
-.tituloInfo {
+.informationTitle {
   margin-top: 5px;
 
   font-family: 'Roboto Flex', sans-serif;
@@ -110,7 +110,7 @@ aside {
   border: rgb(255, 255, 255);
 }
 
-.lista {
+.list {
   margin-top: 30px;
   margin-left: 30px;
 }
@@ -123,7 +123,7 @@ li {
   color: #20479c;
 }
 
-.btninfo {
+.btnInfo {
   width: 250px;
   height: 40px;
   transform: translate(7%, -20%);
@@ -135,25 +135,25 @@ li {
   background-color: #ffffff;
 }
 
-.btninfo:hover {
+.btnInfo:hover {
   opacity: 1;
   box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.24), 0 15px 30px 0 rgba(0, 0, 0, 0.19);
   background-color: #36dc9c;
 }
 
-#laboraa {
+#laboratory {
   transform: translate(50%, 50%);
   border: 0px solid black;
   width: 500px;
 }
 
-#expmed {
+#medicalExpedient {
   transform: translate(80%, 50%);
   background-color: #ffff;
   border: 0px solid black;
 }
 
-#titulotabla {
+#tableTitle {
   font-family: 'Comfortaa', cursive;
   font-size: 20px;
 }
@@ -174,7 +174,7 @@ tr {
   margin-bottom: 3px;
   font-family: 'Quicksand', sans-serif;
 }
-.etiquetas{
+.labelsPatient{
   font-size: 20px;
 }
 
@@ -182,10 +182,10 @@ tr {
 header {
   background-color: #fff;
 }
-.vistalaboratorio{
+.laboratoryView{
   background: #03888d;
 }
-.infoPcNv {
+.infoNewPatient {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
   color: #000;
@@ -214,7 +214,7 @@ header {
   transition: 0.5s;
 }
 
-.titulo {
+.title {
   position: center;
 }
 
@@ -247,7 +247,7 @@ table,
   transform: translate(0%,0%);
 }
 
-.ExpedientePaciente2 {
+.patientExpedient {
   background-color: #cae8ff;
   height: 220px;
   width: 500px;
@@ -257,25 +257,25 @@ table,
   border-radius: 9px;
   box-shadow: 7px 13px 40px black;
 }
-.imgLb{
+.imgLaboratory{
 float: left;
 margin-left: 20px;
 max-width: 800px;
 max-height: 800px;
 }
-.añadirPC{
+.addPatient{
   background: #dadfee;
   height: 190px;
   width: 390px;
   transform: translate(125%, 0%);
   border-radius: 9px;
 }
-.AñadirDatos{
+.addInfo{
   border: 2px solid #000;
   transform: translate(-25%,0%);
   float: right;
 }
-.btnAñadirPC{
+.btnAddPatient{
   margin-top: 20px;
   margin-bottom: 20px;
   transform: translate(440%, 0%);
@@ -285,7 +285,7 @@ max-height: 800px;
   border: 0px;
   font-size: 18px;
 }
-.btnGuardarPc{
+.btnSavePatient{
   margin-bottom: 20px;
   transform: translate(262%, 0%);
   height: 30px;
@@ -295,37 +295,37 @@ max-height: 800px;
   font-size: 14px;
   border-radius: 5px;
 }
-.btnGuardarPc:hover{
+.btnSavePatient:hover{
   background-color: #d6ebfc;
   border: 1px solid black;
   cursor: pointer;
 }
 
-.listaLB{
+.labList{
 margin-top: 20px;
 margin-bottom: auto;
 /*text-align: center;*/
 transform: translate(43%, 0%);
 }
 
-.tabEspera {
+.waitingTable{
   display: flex;
   position: absolute;
   left: 20%;
   margin-top: 30px;
 }
 
-.busqueda2 {
+.searcher {
   margin-top: 150px;
   transform: translate(260%, 50%);
   width: 220px;
   height: 80px;
   border-radius: 19px solid black;
 }
-.tabla{
+.table{
   margin-right: 30px;
 }
-.btnAgregarLb{
+.btnAddLaboratory{
   transform: translate(-10%, 0%);
   margin-top: 20px;
   height: 41px;
@@ -335,38 +335,39 @@ transform: translate(43%, 0%);
   font-size: 14px;
   border-radius: 5px;
 }
-.btnAgregarLb:hover{
+.btnAddLaboratory:hover{
   cursor: pointer;
 }
-.enviar{
+.send{
   max-width: 50px;
   max-height: 50px;
 }
 /*Vista medico*/
 
-.vistamedico {
+.doctorView {
   background: #03888d;
 }
 
-.tituloProyecto {
+.projectTitle {
   font-family: 'Cinzel', serif;
   font-size: 40px;
 }
-.infoUbi{
+.infoLocation{
   font-family: 'Roboto Slab', serif;
   font-weight:normal ;
 }
+
 a {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
   margin-left: 10px;
   font-weight: 900;
 }
-.etiquetas2{
+.doctorLabels{
   font-size: 18px;
   margin-left: 5px;
 }
-.infoPaciente {
+.infoAboutPatient {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
   color: #000;
@@ -374,7 +375,7 @@ a {
   font-weight: 300;
 }
 
-.DatosMedico {
+.infoDoctor {
   width: 800px;
   /*background-color: #d6ebfc;*/
   background-color:#cae8ff;
@@ -384,7 +385,7 @@ a {
   box-shadow: 7px 13px 40px black;
 }
 
-.ExpedientePaciente {
+.aboutPatient {
   background-color: #dadfee;
   height: 400px;
   width: 500px;
@@ -395,12 +396,12 @@ a {
   box-shadow: 7px 13px 40px black;
 }
 
-.lista2 {
+.infoPatientList {
   margin-left: 30px;
   font-family: 'Comfortaa', cursive;
 }
 
-.DiagnosticoTratamiento {
+.prescription {
   background-color: #cae8ff;
   height: 33vh;
   width: 800px;
@@ -411,18 +412,18 @@ a {
   box-shadow: 7px 13px 40px black;
 }
 
-.DiagnosticoTratamiento h1 {
+.prescription h1 {
   text-align: center;
   margin-bottom: 5px;
   
 }
 
-.diagnostico {
+.diagnostic {
   margin-bottom: 20px;
   border-color: #000;
 }
 
-.busqueda {
+.search {
   margin-top: 5px;
   transform: translate(260%, 0%);
   width: 220px;
@@ -430,23 +431,23 @@ a {
   border-radius: 19px solid black;
 }
 
-.buscar1 {
+.sectionSearch {
   margin-top: 30px;
   float: left;
 }
 
-.buscar2 {
+.btnSectionSearch {
   margin-top: 20px;
   float: right;
   transform: translate(80%, -120%);
 
 }
-.buscarP {
+.searchPatient {
   width: 200px;
   font-size: 16px;
   border-color: #000;
 }
-.btnBuscar {
+.btnSearch {
   background-color: #fff;
   color: #000;
   border: 1px solid black;
@@ -454,24 +455,24 @@ a {
   width: 50px;
   border-radius: 18px ;
 }
-.btnBuscar:hover{
+.btnSearch:hover{
   cursor: pointer;
 }
-.lupa{
+.zoom{
   max-width: 40px;
   max-height: 40px;
 }
-.btnagregar{
+.btnAdd{
   background-color: #fff;
   border: 1px solid black;
   border-radius: 10px;
   width: 45px;
   height: 45px;
 }
-.btnagregar:hover{
+.btnAdd:hover{
   cursor: pointer;
 }
-.agregar{
+.add{
   text-align: center;
   max-width: 40px;
   max-height: 40px;
@@ -490,7 +491,7 @@ a {
   cursor: pointer;
   
 }
-.btnSalir {
+.validate {
   margin-top: 20px;
   border-radius: 4px;
   font-size: 20px;
@@ -502,11 +503,11 @@ a {
   margin-bottom: 20px;
 }
 
-.btnSalir:hover {
+.validate:hover {
   background-color: #f0d7c5;
   color: #000;
 }
-.btnSalir2 {
+.btnLeaveDoctor {
   margin-top: 20px;
   border-radius: 4px;
   font-size: 20px;
@@ -519,7 +520,7 @@ a {
   transform: translate(-30%,0%);
 }
 
-.btnSalir2:hover {
+.btnLeave2:hover {
   background-color: #f0d7c5;
   color: #000;
 }
@@ -535,7 +536,7 @@ select{
   border-radius: 9px;
   box-shadow: 0 6px 20px black;
 }*/
-.btnActDatos{
+.btnUpdateInfo{
   margin-bottom: 20px;
   margin-top: 30px;
   transform: translate(400%, 0%);
@@ -545,19 +546,19 @@ select{
   background-color: #ffeb9b;
   border: 0px;
 }
-.btnActDatos:hover{
+.btnUpdateInfo:hover{
   background-color: #ffeb9b;
   border: 0px;
   cursor: pointer;
 }
-.lista3 {
+.list3 {
   margin-left: 10px;
 }
-.actDatos{
+.updInfo{
   border: 1px solid #000;
   font-size: 18px;
 }
-.btnGuardarDatos{
+.btnSaveInfo{
   margin-top: 20px;
   width: 130px;
   height: 30px;
@@ -568,12 +569,12 @@ select{
   border: 0px;
   transform: translate(-38%,0%);
 }
-.btnGuardarDatos:hover{
+.btnSaveInfo:hover{
   background-color: whitesmoke;
   border: 0px;
   cursor: pointer;
 }
-.tabla3{
+.tableUpdatePatient{
   transform: translate(125%,0%);
   border: 0px;
   box-shadow: 0 6px 20px black;
@@ -581,7 +582,7 @@ select{
 .tr3{
     height: 50px;
   }
-.actualizarDatos{
+.updateInfo{
 text-align: center;
 }
 .checkbox{

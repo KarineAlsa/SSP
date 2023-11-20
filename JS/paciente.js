@@ -1,30 +1,33 @@
-listaUsuario=JSON.parse(localStorage.getItem("lista"));
-console.log(listaUsuario);
-var textoId = listaUsuario[0].nombre+ " " + listaUsuario[0].apellidop+ " " + listaUsuario[0].apellidom;
-document.getElementById('Nombre').innerHTML=textoId;
+//const { connect } = require("./connection");
+
+usersList=JSON.parse(localStorage.getItem("list"));
+console.log(usersList);
+var nameUser = usersList[0].name+ " " + usersList[0].firstLastName+ " " + usersList[0].secondLastName;
+document.getElementById('name').innerHTML=nameUser;
+
 //query del apartado de datos personales
-var id=listaUsuario[0].id;
+var id=usersList[0].id;
+
 if(id=="PC_2911"){
     const image = document.createElement('img')
     image.src  = '../IMG/Karine.jpeg'
-    document.querySelector('.perfil').appendChild(image)
+    document.querySelector('.profile').appendChild(image)
 }
 if(id=="PC_0407"){
     const image = document.createElement('img')
     image.src  = '../IMG/Anel.jpeg'
-    document.querySelector('.perfil').appendChild(image)
+    document.querySelector('.profile').appendChild(image)
 }
 if(id=="PC_2008"){
     const image = document.createElement('img')
     image.src  = '../IMG/Aylin.jpeg'
-    document.querySelector('.perfil').appendChild(image)
+    document.querySelector('.profile').appendChild(image)
 }
 
-console.log(listaUsuario[0].id);
-$query = 'Select *from pacientes;';
-$query = `Select edad, peso, sexo, estatura,tipoSangre from pacientes where id_P='${id}'`;
-conexion.query($query, function (err, rows){
-       
+console.log(usersList[0].id);
+$query = 'Select *from patients;';
+$query = `Select age, weight, sex, height,blood from patients where id_Patient='${id}'`;
+connect.query($query, function (err, rows){
     if (err){
         console.log ("error en el query");
         console.log (err);
@@ -36,26 +39,26 @@ conexion.query($query, function (err, rows){
         var long = rows.length;
         if(long>0){
         
-            var edad = rows[0].edad;
-            var peso = rows[0].peso;
-            var sexo = rows[0].sexo;
-            var estatura = rows[0].estatura;
-            var sangre = rows[0].tipoSangre;
+            var age = rows[0].age;
+            var weight = rows[0].weight;
+            var sex = rows[0].sex;
+            var height = rows[0].height;
+            var blood = rows[0].blood;
         
-            document.getElementById('edad').innerHTML=edad;
-            document.getElementById('peso').innerHTML=peso;
-            document.getElementById('sexo').innerHTML=sexo;
-            document.getElementById('estatura').innerHTML=estatura;
-            document.getElementById('sangre').innerHTML=sangre;        
+            document.getElementById('age').innerHTML=age;
+            document.getElementById('weight').innerHTML=weight;
+            document.getElementById('sex').innerHTML=sex;
+            document.getElementById('height').innerHTML=height;
+            document.getElementById('blood').innerHTML=blood;        
         } 
     }
 });
 
 //query del apartado laboratorio
-$query = 'Select *from laboratorio';
-$query = `Select descrpcion from laboratorio where id_P='${id}'`;
-var tabla=document.getElementById('laboraa');
-conexion.query($query, function (err, rows){
+$query = 'Select *from laboratory';
+$query = `Select description from laboratory where id_Patient='${id}'`;
+var table=document.getElementById('laboratory');
+connect.query($query, function (err, rows){
        
     if (err){
         console.log ("error en el query");
@@ -69,20 +72,20 @@ conexion.query($query, function (err, rows){
         if(long>0){
         
             for(i=0 ; i<long ; i++){
-                var newRow = tabla.insertRow(-1);
-                var celdades = newRow.insertCell(0);        
-                var textodes = document.createTextNode(rows[i].descrpcion);
-                celdades.appendChild(textodes);
+                var newRow = table.insertRow(-1);
+                var cell = newRow.insertCell(0);        
+                var text = document.createTextNode(rows[i].description);
+                cell.appendChild(text);
             }        
         } 
     }
 });
 
 //query del apartado expedientes medicos
-$query = 'Select *from expediente';
-$query = `Select diagnostico, tratamiento from expediente where id_P='${id}'`;
-var tablaexp=document.getElementById('expmed');
-conexion.query($query, function (err, rows){
+$query = 'Select *from expedient';
+$query = `Select diagnostic, treatment from expedientS where id_Patient='${id}'`;
+var expedientsTable=document.getElementById('medicalExpedient');
+connect.query($query, function (err, rows){
        
     if (err){
         console.log ("error en el query");
@@ -96,31 +99,31 @@ conexion.query($query, function (err, rows){
         if(long>0){
         
             for(i=0 ; i<long ; i++){
-                var newRow = tablaexp.insertRow(-1);
-                var celdadiag = newRow.insertCell(0);
-                var celdatrat = newRow.insertCell(1);
-                var textodiag = document.createTextNode(rows[i].diagnostico);
-                var textrat = document.createTextNode(rows[i].tratamiento);
-                celdadiag.appendChild(textodiag);
-                celdatrat.appendChild(textrat);
+                var newRow = expedientsTable.insertRow(-1);
+                var diagnosticCell = newRow.insertCell(0);
+                var treatmentCell = newRow.insertCell(1);
+                var diagnosticText = document.createTextNode(rows[i].diagnostic);
+                var treatmentText = document.createTextNode(rows[i].treatment);
+                diagnosticCell.appendChild(diagnosticText);
+                treatmentCell.appendChild(treatmentText);
             }    
         } 
     }
 });
 
-const personales=()=>{
-    document.getElementById('personales').style.display="block";
-    document.getElementById('laboratorios').style.display="none";
-    document.getElementById('expediente').style.display="none";
+const personal=()=>{
+    document.getElementById('personal').style.display="block";
+    document.getElementById('laboratories').style.display="none";
+    document.getElementById('expedient').style.display="none";
 }
-const laboratorios=()=>{
-    document.getElementById('laboratorios').style.display="block";
-    document.getElementById('personales').style.display="none";
-    document.getElementById('expediente').style.display="none";
+const laboratories=()=>{
+    document.getElementById('laboratories').style.display="block";
+    document.getElementById('personal').style.display="none";
+    document.getElementById('expedient').style.display="none";
 
 }
-const expediente=()=>{
-    document.getElementById('expediente').style.display="block";
-    document.getElementById('personales').style.display="none";
-    document.getElementById('laboratorios').style.display="none";
+const expedient=()=>{
+    document.getElementById('expedient').style.display="block";
+    document.getElementById('personal').style.display="none";
+    document.getElementById('laboratories').style.display="none";
 }

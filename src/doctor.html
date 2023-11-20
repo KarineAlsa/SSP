@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../CSS/Styles.css"/>
+    <script src="../JS/validar.js"></script>
+</head>
+
+<body class="doctorView">
+
+    <header>
+        <br>
+        <div>
+            <img src="../IMG/doctor.png" class="imgLaboratory" alt="Logo" >
+        </div>
+        <div class="container-case">
+            <center><h1 class="projectTitle">Centro de analisis clinicos SSP</h1></center>
+            <center><br><a class="infoLocation">Calle de Velázquez, 80 Madrid. Address: Street de Velázquez, 80 Madrid.</a></center>
+            <br><hr>
+            <div class="overlay"></div>
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="infoDoctor">
+        <center><h1 class="medic">Datos del médico</h1></center>
+        <hr><br>
+        <a>Nombre: <label id="name" class="doctorLabels"></label></a><br><br>
+        <a>Especialidad: <label id="specialty" class="doctorLabels"></label></a><br><br>
+        <a>Cedula profesional: <label id="license" class="doctorLabels"></label></a><br><br>    
+    </div>
+
+    <div class="search">
+        <section class="sectionSearch">
+            <input id="searchPatient" class="searchPatient">
+        </section>
+        <div class="btnSectionSearch">
+            <button type="button" class="btnSearch" onclick="buscar()"><img src="../IMG/lupa.png" class="zoom"></button>
+        </div>    
+    </div>
+    
+    <div class="aboutPatient">
+        <center><h1>Expediente del paciente</h1></center><br>
+        <div class="infoPatientList">
+            <ul >
+                <li class="infoAboutPatient"> Nombre: <label id="namePatient"></label></li>
+                <br>
+                <li class="infoAboutPatient"> Edad: <label id="agePatient"></label> </li>
+                <br>
+                <li class="infoAboutPatient"> Peso: <label id="weightPatient"></label></li>
+                <br>
+                <li class="infoAboutPatient"> Sexo: <label id="sexPatient"></label></li>
+                <br>
+                <li class="infoAboutPatient"> Estatura: <label id="heightPatient"></label></li>
+                <br>
+                <li class="infoAboutPatient"> Grupo Sanguineo: <label id="bloodPatient"></label></li>
+                <li hidden> Id <label id="idPatient" hidden></label></li>
+            </ul>
+        </div>
+    </div>
+    
+    <button id="btnUpdate"style="display: none;"type="button" class="btnUpdateInfo" onclick="appearUpdate()">Actualizar Datos</button>
+    
+    <div id="update" class="updateInfo" style="display:none">
+            <table class="tableUpdatePatient">
+                <tr class="tr3">
+                  <td ><a class="infoAboutPatient"> Edad </a> </td>
+                  <td > <input type="checkbox" class="checkbox" id="checkAge" onChange="checkAge(this)"> </td>
+                  <td ><input id="ageUpdate" class="updInfo" readonly value=""></td>
+                </tr>
+                <tr class="tr3">
+                  <td><a class="infoAboutPatient"> Peso </a> </td>
+                  <td><input type="checkbox"  class="checkbox" id="checkWeight" onChange="checkWeight(this)"> </td>
+                  <td><input id="weightUpdate" class="updInfo" readonly value=""></td>
+                </tr>
+                <tr class="tr3">
+                  <td><a class="infoAboutPatient"> Estatura </a></td>
+                  <td><input type="checkbox"  class="checkbox" id="checkHeight" onChange="checkHeight(this)"></td>
+                  <td><input id="heightUpdate" class="updInfo" readonly value=""></td>
+                </tr>
+                  
+              </table>
+           
+        <button type="button" class="btnSaveInfo" onclick="updateInfo()">Guarda Datos</button>
+    </div>
+
+    <br><br>
+
+    <div class="prescription">
+        <br>
+        <h1>Diagnóstico </h1> <input class="diagnostic" id="diagnostic">
+        <hr>
+        <br>
+        <h1>Tratamiento </h1> <input class="diagnostic" id="treatment">
+        <center><button class="btnAdd" onclick="chargePrescription()"><img src="../IMG/agregar.png" class="add"></button></center>
+    </div>
+    <br>
+    <br>
+        <center><button class="btnLeaveDoctor" onclick="exit()">Salir</button></center>
+    
+</body>
+<script src="../JS/validar.js"></script>
+<script src="../JS/medico.js"></script>
+</html>

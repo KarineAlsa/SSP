@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    
+</head>
+
+<body class="patientView">
+        <section class="infoPatient">
+        <aside>
+            <br>
+            <div>
+                <center>
+                  <div class="profile">
+
+                  </div>
+                </center>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <br>
+                <button class="btnInfo" onclick="personal()">Datos personales</button>
+                <br><br>
+                <button class="btnInfo" onclick="laboratories()">Laboratorios</button>
+                <br><br>
+                <button class="btnInfo" onclick="expedient()">Expediente médico</button>
+                <br>
+                
+            </div>
+        </aside>
+        <section class="information">
+            <div id="personal">
+                <div>
+                    <center>
+                        <br>
+                    <h1 class="informationTitle" style="font-size:300%">Datos Personales</h1>
+                </center>
+                </div>
+                <div class="list" >
+                    
+                        <ul id=information >
+
+                            <li> Nombre: <label id="name" class="labelsPatient"></label></li> 
+                            <br>
+                            <li> Edad: <label id="age" class="labelsPatient"></label> años</li>
+                            <br>
+                            <li> Peso: <label id="weight" class="labelsPatient"></label> kg</li>
+                            <br>
+                            <li> Sexo: <label id="sex" class="labelsPatient"></label></li>
+                            <br>
+                            <li> Estatura: <label id="height" class="labelsPatient"></label> cm</li>
+                            <br>
+                            <li> Grupo Sanguineo: <label id="blood" class="labelsPatient"></label></li>
+                        </ul>
+                    
+                </div>
+            </div>
+
+            <div id="laboratories" style="display:none">
+                <div>
+                    <center>
+                        <br>
+                    <h1 class="informationTitle" style="font-size:300%">Historial de Laboratorios</h1>
+                </center>
+                </div>
+                <div class="list" >
+                    
+                    <table id="laboratory">
+                        <tr>       
+                             
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+
+            <div id="expedient" style="display:none">
+                <div>
+                    <center>
+                        <br>
+                    <h1 class="informationTitle" style="font-size:300%">Expedientes Medicos</h1>
+                </center>
+                </div>
+                <div class="list" >
+                    <table id="medicalExpedient">
+
+                        <tr>       
+                             
+                          <td id="tableTitle">DIAGNOSTICO</td><br><br>  
+                          <td id="tableTitle">TRATAMIENTO</td>  
+                        </tr>
+                      </table>
+                </div>
+            </div>
+        </section>
+        <div>
+            <center><button class="validate" onclick="exit()">Salir</button></center>
+        </div>
+    </section>
+</body>
+    <script src="../JS/validar.js"></script>
+    <script src="../JS/paciente.js"></script>
+    
+</html>
