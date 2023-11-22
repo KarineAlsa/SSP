@@ -1,45 +1,47 @@
+const axios = require('axios');
+token=JSON.parse(localStorage.getItem("token"))[0].token;
 class node {
     constructor (code) {   
       this.code=code
-      this.derecha = null
-      this.izquierda = null
+      this.right = null
+      this.left = null
     }
   }
 
-  class Arbol {
+  class Tree {
     
     constructor () {
-      this.raiz = null
+      this.root = null
     }
     
-    Vacio () {
-      return this.raiz === null
+    Empy () {
+      return this.root === null
     }
   
     add (code) {
       
-      if (this.Vacio()) {
-        this.raiz = new node(code)
+      if (this.Empy()) {
+        this.root = new node(code)
         return
       }
     
-      var aux = this.raiz
+      var aux = this.root
         
       while (aux) {
         
         if (code < aux.code) {
-          if (aux.izquierda) {
-            aux = aux.izquierda
+          if (aux.left) {
+            aux = aux.left
             
           } else {
-            aux.izquierda = new node(code)
+            aux.left = new node(code)
             return
           }
         } else { 
-          if (aux.derecha) {
-            aux = aux.derecha
+          if (aux.right) {
+            aux = aux.right
           } else {
-            aux.derecha = new node(code)
+            aux.right = new node(code)
             return
           }
         }
@@ -48,26 +50,26 @@ class node {
   
      
     buscar (lastName) {
-      if (this.Vacio()) {
+      if (this.Empy()) {
         return null
       }
   
-      var aux = this.raiz
-      if (aux.apellido === lastName) {
+      var aux = this.root
+      if (aux.lastname === lastName) {
         return aux
       }
   
       while(aux) {
        
-        if (aux.apellido === lastName) {
+        if (aux.lastname === lastName) {
           break
         }
         
-        if (aux.apellido < lastName) {
-          aux = aux.derecha
-        } else if (aux.apellido> lastName) {
+        if (aux.lastname < lastName) {
+          aux = aux.right
+        } else if (aux.lastname> lastName) {
          
-          aux = aux.izquierda
+          aux = aux.left
         }
       }
       
@@ -76,11 +78,11 @@ class node {
 
     
     buscarcode (code) {
-      if (this.Vacio()) {
+      if (this.Empy()) {
         return null
       }
   
-      var aux = this.raiz
+      var aux = this.root
       if (aux.code === code) {
         return aux
       }
@@ -94,18 +96,17 @@ class node {
         }
         
         if (aux.code < code) {
-          aux = aux.derecha
+          aux = aux.right
         } else if (aux.code> code) {
          
-          aux = aux.izquierda
+          aux = aux.left
         }
       }
       
       return aux
     }
-    remove(code)
-{
-    this.raiz = this.removeNode(this.raiz, code);
+remove(code){
+this.root = this.removeNode(this.root, code);
 }
   
 removeNode(node, code)
@@ -118,63 +119,63 @@ removeNode(node, code)
    
     else if(code < node.code)
     {
-        node.izquierda = this.removeNode(node.izquierda, code);
+        node.left = this.removeNode(node.left, code);
         return node;
     }
   
     else if(node > node.code)
     {
-        node.derecha = this.removeNode(node.derecha, code);
+        node.right = this.removeNode(node.right, code);
         return node;
     }
     else
     {
 
-        if(node.izquierda === null && node.derecha === null)
+        if(node.left === null && node.right === null)
         {
             node = null;
             return node;
         }
   
         
-        if(node.izquierda === null)
+        if(node.left === null)
         {
-            node = node.derecha;
+            node = node.right;
             return node;
         }
           
-        else if(node.derecha === null)
+        else if(node.right === null)
         {
-            node = node.izquierda;
+            node = node.left;
             return node;
         }
 
-        var aux = this.findMinNode(node.derecha);
+        var aux = this.findMinNode(node.right);
         node.code = aux.code;
   
-        node.derecha = this.removeNode(node.derecha, aux.code);
+        node.right = this.removeNode(node.right, aux.code);
         return node;
     }
   
 }
 findMinNode(node)
 {
-    if(node.izquierda === null)
+    if(node.left === null)
         return node;
     else
-        return this.findMinNode(node.izquierda);
+        return this.findMinNode(node.left);
 }
 
     
   
 
-    INORDEN (node = this.raiz) {
+    INORDEN (node = this.root) {
       if (!node) {
         return
       }
 
         let tablaR = document.getElementById('secondLaboratoryTable');
-        this.INORDEN(node.izquierda)
+        this.INORDEN(node.left)
 
         var newRow = tablaR.insertRow(-1);
 
@@ -183,10 +184,10 @@ findMinNode(node)
         
         identificador.append(node.code);
 
-      this.INORDEN(node.derecha)
+      this.INORDEN(node.right)
 
     }
-    INORDEN2 (node = this.raiz) {
+    INORDEN2 (node = this.root) {
       if (!node) {
         return
       }
@@ -194,257 +195,217 @@ findMinNode(node)
       
       
         let tablap = document.getElementById('forthLaboratoryTable');
-        this.INORDEN2(node.izquierda)
+        this.INORDEN2(node.left)
 
         var newRow = tablap.insertRow(-1);
 
         
         var identificador = newRow.insertCell(0);
-        
+        console.log(node.code)
         identificador.append(node.code);
 
-      this.INORDEN2(node.derecha)
-      
-        
-      
-      
+      this.INORDEN2(node.right)
+
     }
     
-    preOrder (node = this.raiz) {
+    preOrder (node = this.root) {
       if (!node) {
         return
       }
       
-      console.log(node.apellido)
-      this.preOrder(node.izquierda)
-      this.preOrder(node.derecha)
+      console.log(node.lastname)
+      this.preOrder(node.left)
+      this.preOrder(node.right)
     }
     
-    postOrder (node = this.raiz) {
+    postOrder (node = this.root) {
       if (!node) {
         return
       }
-      this.postOrder(node.izquierda)
-      this.postOrder(node.derecha)
-      console.log(node.apellido)
+      this.postOrder(node.left)
+      this.postOrder(node.right)
+      console.log(node.lastname)
     }
 
   }
-$query = `SELECT key_init,name, firstLastName,secondLastName,code
-FROM loginPatient INNER JOIN patients on loginPatient.key_init=patients.id_Patient`;
 
-connect.query($query, function (err, rows) {
-  if (err) {
-    console.log("error en el query");
-    console.log(err);
-    return;
-  }
-  else {
-    var long = rows.length;
-    for (i = 0; i < long; i++) {               
-      
-        var codeTemp= document.createTextNode(rows[i].code);
-        var code=codeTemp.nodeValue;
-        
-        add(code);
-        
+  let configDataTreeInterior = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:1234/all/patient',
+    headers: { 
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
     }
+};
+
+axios.request(configDataTreeInterior).then((response) => {
+  if (response.data.status){
     
+    for (i = 0; i < response.data.message.length; i++) {               
+      var codeTemp= document.createTextNode(response.data.message[i].code);
+      var code=codeTemp.nodeValue;
+     
+      
+      addTree(code);
+      
+    }
     order();
   }
+})
+.catch((error) => {
+    console.log(error);
 });
 
-$query = `SELECT codeExternal FROM externalPatients`;
-
-connect.query($query, function (err, rows) {
-  if (err) {
-    console.log("error en el query");
-    console.log(err);
-    return;
-  }
-  else {
-    var long = rows.length;
-    for (i = 0; i < long; i++) {               
-            
-            
-      var codeTemp= document.createTextNode(rows[i].codeExternal);
-      var code=codeTemp.nodeValue;
-      console.log(code)
-      add2(code);
-
-    }
-        
-    order2()
-  }
-});
-
-var t = new Arbol()
-var u= new Arbol()
-
-function add (code) {
+function addTree (code) {
   t.add(code);
 }
 
 function order () {  
   t.INORDEN();
 }
-function add2 (code) {
+function add2Tree (code) {
   u.add(code);
 }
 
 function order2 () {  
   u.INORDEN2();
 }
+var t = new Tree()
+var u= new Tree()
 
-var id;
+let configDataTreeExterior = {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'http://localhost:1234/laboratory/all',
+  headers: { 
+    'Authorization': 'Bearer ' + token,
+    'Content-Type': 'application/json'
+  }
+};
+
+axios.request(configDataTreeExterior).then((response) => {
+if (response.data.status){
+  
+  for (i = 0; i < response.data.message.length; i++) {               
+    var codeTemp= document.createTextNode(response.data.message[i].codeExternal);
+    var code=codeTemp.nodeValue;
+   
+    
+    add2Tree(code);
+    
+  }
+  order2();
+  var $element2 = document.getElementById("forthLaboratoryTable");
+
+  if ($element2.rows.length === 0) {
+  document.getElementById('therePatient2').innerHTML="No hay pacientes en espera de resultados";
+}
+}
+}).catch((error) => {
+  console.log(error);
+});
+
+var currentCode;
 var systemPatients;
+
 function search(){
   var code=document.getElementById('searchPatient').value;
   let $updateInfo=document.getElementsByClassName('searchPatient');
     for (var i = 0; i < $updateInfo.length; i++) {
-      console.log($updateInfo[i].id);
-      $updateInfo[i].value = "";//second console output
+      $updateInfo[i].value = "";
     }
-  $query = `SELECT key_init,name, firstLastName,secondLastName,code
-  FROM loginPatient INNER JOIN patients on loginPatient.key_init=patients.id_Patient WHERE code='${code}'`;
-  connect.query($query, function (err, rows){
-        
-    if (err){
-      console.log ("error en el query");
-      console.log (err);
-    return;
-    } 
 
-    else{  
-      console.log("ejecutado correctamente", rows);
-      var long = rows.length;
-      if(long>0){
-        systemPatients=1;
-        id=rows[0].id_inicio;
-        var name = rows[0].name + " " + rows[0].firstLastName +" "+ rows[0].secondLastName;
-        var code1 = rows[0].code;
-
-        document.getElementById('namePatient').innerHTML=name;
-        document.getElementById('codePatient').innerHTML=code1;
-        var encontrado=t.buscarcode(code1)   
-        if(encontrado===null){
-          
-          document.getElementById('statusPatient').innerHTML="No espera ningun resultado";
-          const $button = document.querySelector("#add");
-          $button.style.display="none";
-          const $box=document.querySelector('#box');
-          $box.style.display="none";
-              
-        }
-        else{
-          
-          document.getElementById('status').innerHTML="En espera";
-          const $button = document.querySelector("#add");
-          $button.style.display="block";
-          const $box=document.querySelector('#box');
-          $box.style.display="block";
-        }
-            
-      }
-
-      if(long==0) {
-        console.log(code);
-        $query = `SELECT codeExternal, name, firstLastName, secondLastName, typeStudy
-        FROM externalPatients WHERE codeExternal='${code}'`;
-        connect.query($query, function (err, rows){
+    let configDataSearch = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:1234/laboratory/search',
+      headers: { 
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      },
+      params: { "code": code }    
+    };
+    
+    axios.request(configDataSearch).then((response) => {
+    if (response.data.status){
+      currentCode=response.data.message.code
       
-          if (err){
-            console.log ("error en el query");
-            console.log (err);
-          return;
-          }
-          else{   
-            console.log("ejecutado correctamenteexterno", rows);
-            long = rows.length;
-            if(long>0){
-              systemPatients=2;
-              id=rows[0].codeExternal;
-              var name = rows[0].name + " " + rows[0].firstLastName +" "+ rows[0].secondLastName;
-              var typeStudy = rows[0].typeStudy;
-            
-              //idpaciente=id;
-              document.getElementById('namePatient').innerHTML=name;
-              document.getElementById('codePatient').innerHTML=id;
-              document.getElementById('statusPatient').innerHTML=typeStudy;
-              const $button = document.querySelector("#add");
-              $button.style.display="block";
-              const $box=document.querySelector('#box');
-              $box.style.display="block";
-              
-            }
-            else{
-              alert("Paciente no encontrado");  
-              systemPatients=3;                
-            }
-          }
-        });
-      }  
+      var foundInterior=t.buscarcode(response.data.message.code)   
+      
+      var foundExterior=u.buscarcode(response.data.message.code)   
+
+      if (foundInterior!=null && foundExterior==null){
+        systemPatients = 1
+        setDataPatient(response.data.message)
+      }
+      if (foundInterior==null && foundExterior!=null){
+        systemPatients = 2
+        setDataPatient(response.data.message)
+      }
+      if (foundInterior==null && foundExterior==null){
+        alert("Paciente no encontrado");  
+        systemPatients = 3
+      }
+      
+    }else{
+      systemPatients = 3
+      alert("Paciente no encontrado"); 
+      setDataPatient("none") 
     }
+    }).catch((error) => {
+      console.log(error);
   });
 }
-
-function addStudy(){
-  var box = document.getElementById("box2");
-  var $selected = box.options[box.selectedIndex].text;
-
-  $query = `INSERT INTO laboratory (id_Patient,description) VALUES ('${id}','${$selected}')`;
-    connect.query($query, function (err) {
-        if (err) {
-            console.log("error en el query");
-            console.log(err);
-            return;
-        }
-        else { 
-            alert("Guardado en el expediente del paciente") 
-        }
-    });
-}
-function deleteExternalPatient(){
-
-  $query = `DELETE FROM externalPatients WHERE codeExternal='${id}'`;
-  connect.query($query, function (err) {
-    if (err) {
-        console.log("error en el query");
-        console.log(err);
-        return;
+function setDataPatient(data){
+  if (systemPatients==3){
+    document.getElementById('namePatient').innerHTML="";
+    document.getElementById('codePatient').innerHTML="";
+    document.getElementById('statusPatient').innerHTML="";
+    const $button = document.querySelector("#add");
+    $button.style.display="none";
+    const $box=document.querySelector('#box');
+    $box.style.display="none";
+  }else{
+    
+    var name = data.name + " " + data.firstLastName +" "+ data.secondLastName;
+    var study = data.typeStudy;
+  
+    document.getElementById('namePatient').innerHTML=name;
+    document.getElementById('codePatient').innerHTML=currentCode;
+    document.getElementById('statusPatient').innerHTML=study;
+    if (systemPatients==1){
+      const $button = document.querySelector("#add");
+      $button.style.display="none";
+      const $box=document.querySelector('#box');
+      $box.style.display="none";
     }
-  });
-}
+    if (systemPatients==2){
+      const $button = document.querySelector("#add");
+      $button.style.display="block";
+      const $box=document.querySelector('#box');
+      $box.style.display="block";
+    }
+  }
+
+}  
 
 function add(){
   
-  if(systemPatients==1){
-      addStudy();
-      var code=document.getElementById('codePatient').innerHTML;
-      console.log(code);
-      t.remove(code);
-      document.getElementById('status').innerHTML="No espera ningun resultado";
-  }
   if(systemPatients==2){
-    var code=document.getElementById('codePatient').innerHTML;
-    u.remove(code);
+    console.log(currentCode)
+    u.remove("JAMM");
+    //var $element2 = document.getElementById("forthLaboratoryTable");
+    //$element2.innerHTML = "";
+    
     deleteExternalPatient();
     alert("archivo enviado paciente externo")
     let info= document.getElementsByClassName('infoPat');
-    console.log(info);
-    
         for (var i = 0; i < info.length; i++) {
             
             info[i].innerHTML = "";
-        }
-    
+        }  
   }
-  if(systemPatients==3){
-    alert("Paciente no encontrado en lista de espera");
-  }
- 
-
-  
 
   const $button = document.querySelector("#add");
   $button.style.display="none";
@@ -452,16 +413,10 @@ function add(){
   const $box=document.querySelector('#box');
   $box.style.display="none";
 
-  
-
-  const $element = document.querySelector("#secondLaboratoryTable");
+  var $element = document.getElementById("secondLaboratoryTable");
   $element.innerHTML = "";
-
-  const $element2 = document.querySelector("#forthLaboratoryTable");
-  $element2.innerHTML = "";
-
-  t.INORDEN();
-  u.INORDEN2();
+  
+ location.reload()
   if($element.innerHTML===""){
     document.getElementById('therePatient').innerHTML="No hay pacientes en espera de resultados";
   }
@@ -470,6 +425,29 @@ function add(){
   }
 
 }
+
+
+function deleteExternalPatient(){
+  console.log(currentCode);
+  let configDeleteExternal = {
+    method: 'delete',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:1234/laboratory/send',
+    headers: { 
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    },
+    params: { "code": currentCode }    
+  };
+  
+  axios.request(configDeleteExternal).then((response) => {
+    console.log(response)
+    
+    }).catch((error) => {
+      console.log(error);
+});
+}
+
 
 function addPatient(){
   var block=document.getElementById('addPatient').style.display;
@@ -489,11 +467,24 @@ function addPatient(){
     }
 }
 
+
 function savePatient(){
   var name = document.getElementById('nameExternalPatient').value;
   var newName =name.split([" "]);
   
   console.log(newName);
+
+  if(newName.length==1){
+    alert("Especifique bien su nombre")
+    return
+  }
+  if(newName.length==2){
+    var nameNew=newName[0];
+    var firstLastName=newName[1];
+    var secondLastName="";
+    console.log("tamaño 2 " + nameNew + firstLastName + secondLastName);
+  }
+
   if(newName.length==3){
     var nameNew=newName[0];
     var firstLastName=newName[1];
@@ -512,39 +503,58 @@ function savePatient(){
   u.add(code);
   console.log(code,nameNew);
   var study = box.options[box.selectedIndex].text;
-    if(name && code && study!=""){
+    if(name !=""&& code!="" && study!=""){
 
-    
-      $query = `INSERT INTO externalPatients (name,firstLastName,secondLastName,codeExternal,typeStudy) VALUES ('${nameNew}','${firstLastName}','${secondLastName}','${code}','${study}')`;
-      connect.query($query, function (err) {
-        if (err) {
-            console.log("error en el query");
-            console.log(err);
-            return;
-        }
-        else { 
-            alert("Guardado en lista de espera");
-            let $newPatient=document.getElementsByClassName('addInfo');
-                for (var i = 0; i < $newPatient.length; i++) {
-                    
-                    $newPatient[i].value = "";//second console output
-                }
-            var block=document.getElementById('addPatient').style.display;
-            if(block=="block"){
-            document.getElementById('addPatient').style.display="none";
+      let configAdd = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: 'http://localhost:1234/laboratory/add',
+        headers: { 
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        },
+        data: { 
+          "code": code,
+          "name":nameNew,
+          "firstLastName":firstLastName,
+          "secondLastName": secondLastName,
+          "typeStudy":study
+         }    
+      };
+      
+      axios.request(configAdd).then((response) => {
+        console.log(response)
+        alert("Guardado en lista de espera");
+        let $newPatient=document.getElementsByClassName('addInfo');
+            for (var i = 0; i < $newPatient.length; i++) {
+                
+                $newPatient[i].value = "";//second console output
             }
-            const $element2 = document.querySelector("#forthLaboratoryTable");
-            $element2.innerHTML = "";
-            u.INORDEN2();
+        var block=document.getElementById('addPatient').style.display;
+        if(block=="block"){
+        document.getElementById('addPatient').style.display="none";
         }
+
+        location.reload();
+        //const $element2 = document.querySelector("#forthLaboratoryTable");
+        //$element2.innerHTML = "";
+        //u.INORDEN2();
+
+        }).catch((error) => {
+          console.log(error);
       });
-    
     }else{
       alert("No puede dejar en blanco uno de los campos");
     }
-    
-}
+  }
+/*
 
+
+
+
+    
+
+*/
 const exit=()=>{
   window.location.href="index.html";}
 
