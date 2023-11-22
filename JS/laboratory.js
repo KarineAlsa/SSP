@@ -545,3 +545,6 @@ function savePatient(){
     
 }
 
+const exit=()=>{
+  window.location.href="index.html";}
+
